@@ -13,11 +13,11 @@
                 <a><img src="" alt="app_logo"> Gestao Limpezas</a>
             </div>
             <nav class="nav_bar">
-                <a>Dashboard</a>
-                <a>Gestao</a>
-                <a>Limpezas</a>
-                <a>Calendario</a>
                 <a>Login</a>
+                <a>Dashboard</a>
+                <a>Calendario</a>
+                <a>Limpezas</a>
+                <a>Gestao</a>
             </nav>
         </div>
     </header>
