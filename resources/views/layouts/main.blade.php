@@ -10,15 +10,21 @@
     <header>
         <div class="header_container">
             <div class="w_page_container">
-                <a><img src="" alt="app_logo"> Gestao Limpezas</a>
+                <a href="#welcome"><img src="/images/uac_logo.png" alt="app_logo"> Gestao Limpezas</a>
             </div>
             <nav class="nav_bar">
-                <a>Login</a>
-                <a>Dashboard</a>
-                <a>Calendario</a>
-                <a>Limpezas</a>
-                <a>Gestao</a>
+{{--            if the account is loged in show the profile icon and the username
+                eg: img - username  --}}
+                <a href="/create_account">Register</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#calender">Calender</a>
+                <a href="#cleanings">Cleanings</a>
+                <a href="#manager">Manager</a>
             </nav>
+            <div class="settings_container">
+                <a href="#settings">Settings</a>
+                <a class="logout_btn" href="#logout"><img src="/images/worker.png"></a>
+            </div>
         </div>
     </header>
     @yield('content')

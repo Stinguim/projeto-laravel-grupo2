@@ -8,20 +8,31 @@ body{
 }
 
 header{
-    background-color: #0dcaf0;
+    background-color: #4aaec0;
     width: 300px;
     height: 100vh;
+    border-radius: 0 50px 50px 0;
 }
 
 .header_container{
     padding: 0 15px;
-    color: white;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 30px;
+    height: inherit;
 }
 
-.header_container, .nav_bar{
+.header_container > *{
     padding: 10px;
+}
+
+.w_page_container > a > img{
+    border-radius: 100%;
+    width: 120px;
+}
+
+.w_page_container > a, .nav_bar > a , .settings_container > a{
+    color: white;
+    text-decoration: none;
 }
 
 .w_page_container > a{
@@ -39,3 +50,16 @@ header{
     padding: 7px 0;
 }
 
+.settings_container > a{
+    display: block;
+}
+
+.logout_btn{
+    position: fixed;
+    bottom: 0;
+    left: 180px;
+}
+
+.logout_btn > img{
+    width: 86px;
+}
