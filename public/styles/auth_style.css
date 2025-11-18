@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.page_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    background-color: lightskyblue;
+}
+
+.login_container{
+    width: 421px;
+    height: 232px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50px;
+}
