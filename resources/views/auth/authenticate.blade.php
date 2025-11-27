@@ -10,19 +10,22 @@
     <div class="page_container">
         <div class="login_container">
             <div class="f_container">
-                <p style="margin: 0">Login Page</p>
+                <h2>Login</h2>
                 <form>
                     @csrf
-                    <div>
+                    <div class="ep_container">
                         <label>Email</label>
                         <input value="email">
                     </div>
-                    <div>
+                    <div class="ep_container">
                         <label>Password</label>
                         <input value="password">
                     </div>
                     <input type="submit" value="Submit">
-                    <a href="#registar">registar</a>
+                    <div class="ac_reg_container">
+                        <p>Dont have an account?</p>
+                        <a href="#registar">Register</a>
+                    </div>
                 </form>
             </div>
         </div>
