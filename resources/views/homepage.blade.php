@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 @extends("layouts.main")
 @section('title', 'Pagina Inicial')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

@@ -10,7 +10,7 @@
     <header>
         <div class="header_container">
             <div class="w_page_container">
-                <a href="#welcome"><img src="/images/uac_logo.png" alt="app_logo"> Gestao Limpezas</a>
+                <a href="/homepage"><img src="/images/uac_logo.png" alt="app_logo"> Gestao Limpezas</a>
             </div>
             <nav class="nav_bar">
 {{--            if the account is loged in show the profile icon and the username

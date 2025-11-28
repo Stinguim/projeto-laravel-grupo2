@@ -8,21 +8,23 @@
 </head>
 <body>
     <div class="loginInterface">
-        <div>
+        <div class="job_card">
+            <img src="images/worker.png" alt="Worker">
             <p class="titles">Supervisor</p>
             <p class="description">Lorem Impsum Dolore</p>
-            <button class="buttons">Create</button>
+            <a class="buttons" href="/register">Create</a>
         </div>
-        <div>
-            <img src="images/worker.png" alt="Worker" style="width:200px;height:200px;">
+        <div class="job_card">
+            <img src="images/worker.png" alt="Worker">
             <p class="titles">Cliente</p>
             <p class="description">Lorem Impsum Dolore</p>
-            <button class="buttons">Create</button>
+            <a class="buttons" href="/register">Create</a>
         </div>
-        <div>
+        <div class="job_card">
+            <img src="images/worker.png" alt="Worker">
             <p class="titles">Funcionário</p>
             <p class="description">Lorem Impsum Dolore</p>
-            <button class="buttons">Create</button>
+            <a class="buttons" href="/register">Create</a>
         </div>
     </div>
 </body>

@@ -5,16 +5,27 @@ p{
 .loginInterface{
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-left:15%;
     margin-right:15%;
 }
 
-.loginInterface > div{
+.job_card{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 20px;
+    padding: 20px;
+
+    background-color: skyblue;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px lightskyblue inset;
+}
+
+.job_card > img{
+    width:200px;
+    height:200px;
 }
 
 .titles{
