@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/styles/auth_style.css">
 </head>
 <body>
-{{--    fazer como esta no register--}}
     <div class="page_container">
         <div class="login_container">
             <div class="f_container">
@@ -27,10 +26,26 @@
                     </div>
                     <div class="ac_reg_container ep_container">
                         <p style="margin: 0">Dont have an account?</p>
-                        <a class="reg_btn" href="/create_account">Register</a>
+                        <a class="reg_btn" href="/register">Register</a>
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div class="bg-container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="" method="GET">
+                <div class="user-input">
+                    <label for="first">Email:</label>
+                    <input type="text" id="first" name="email" placeholder="yourmail@gmail.com" required>
+                </div>
+                <div class="user-input">
+                    <label for="first">Password:</label>
+                    <input type="text" id="first" name="password" placeholder="YourPassword" required>
+                </div>
+                <a type="submit">Register</a>
+            </form>
         </div>
     </div>
 </body>
