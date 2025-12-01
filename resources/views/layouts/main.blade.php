@@ -7,31 +7,22 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>
-        <div class="header_container">
-            <div class="w_page_container">
-                <a href="/homepage"><img src="/images/uac_logo.png" alt="app_logo"> Gestao Limpezas</a>
-            </div>
-            <nav class="nav_bar">
-{{--            if the account is loged in show the profile icon and the username
-                eg: img - username  --}}
-                <a href="/create_account">Register</a>
-                <a href="#dashboard">Dashboard</a>
-                <a href="#calender">Calender</a>
-                <a href="#cleanings">Cleanings</a>
-                <a href="#manager">Manager</a>
+    <div class="bg-container">
+        <div class="sub-nav-container">
+            <h1>Cleaner App</h1>
+            <nav class="sn-container">
+                <a href="#">Anchor 1</a>
+                <a href="#">Anchor 2</a>
+                <a href="#">Anchor 3</a>
+                <a href="#">Anchor 4</a>
             </nav>
-            <div class="settings_container">
-                <a href="#settings">Settings</a>
-                <a class="logout_btn" href="#logout"><img src="/images/worker.png"></a>
-            </div>
         </div>
-    </header>
-    @yield('content')
-    <footer>
-        <div class="footer_container">
+    </div>
+    <div class="main-nb">
+        <div class="nav-bar-container">
 
         </div>
-    </footer>
+        @yield('content')
+    </div>
 </body>
 </html>
