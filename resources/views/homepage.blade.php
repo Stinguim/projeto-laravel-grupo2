@@ -8,7 +8,9 @@
     </head>
     <body>
         @section('content')
-            <p>This is from the welcome page</p>
+            <div>
+                <p>This is from the welcome page</p>
+            </div>
         @endsection
     </body>
 </html>
