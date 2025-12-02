@@ -8,5 +8,8 @@ Route::get("/", function(){return view("auth.authenticate");});
 
 Route::get("/register", function(){return view("auth.register");});
 
-Route::get("/homepage",function(){return view("homepage");});
+Route::get("/dashboard",function(){return view("dashboard");});
 
+
+
+Route::get("/settings", function(){return view("settings");});

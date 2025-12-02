@@ -11,7 +11,7 @@ body{
     display: flex;
     justify-content: center;
 
-    background-color: #0dcaf0;
+    background-color: lightblue;
 }
 
 .sub-nav-container{
@@ -38,7 +38,7 @@ body{
     padding: 10px 0;
     margin: 5px 0;
 
-    border: 3px solid darkblue;
+    border: 3px solid cadetblue;
     border-radius: 10px;
 
     text-decoration: none;
@@ -48,18 +48,56 @@ body{
 }
 
 .sn-container a:hover{
-    background-color: darkblue;
+    background-color: cadetblue;
     color: white;
 
     border: 3px solid white;
+}
+
+.sn-container, .bottom-nav{
+    height: 50%;
+}
+
+.bottom-nav{
+    justify-content: end;
 }
 
 .main-nb{
     width: 100%;
 }
 
-.nav-bar-container{
-    height: 60px;
-    background-color: lightgreen;
+.header-container{
+    display: flex;
+    flex-direction: row;
 
+    height: 65px;
+
+    background-color: whitesmoke;
 }
+
+.right-side, .left-side{
+    width: 50%;
+}
+
+.left-side{
+    margin: 0 0 0 10px;
+}
+
+.right-side{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    margin: 0 10px 0 0;
+}
+
+.right-side > *{
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.right-side > img{
+    height: 50px;
+}
+
+
