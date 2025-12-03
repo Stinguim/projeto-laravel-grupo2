@@ -25,7 +25,8 @@
     <div class="main-nb">
         <div class="header-container">
             <div class="left-side">
-                <h2>DashBoard</h2>
+                <h2 id="title_h2">DashBoard</h2>
+{{--                <script src="../../js/dynamic_tags.js">dynamic_h2()</script>--}}
             </div>
             <div class="right-side">
                 <img src="/images/user.png" alt="UserPfp">

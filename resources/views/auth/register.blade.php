@@ -11,9 +11,14 @@
             <div class="form-container">
                 <h2>Register</h2>
                 <form action="" method="POST">
+                    @csrf
                     <div class="user-input">
                         <label for="first">Username:</label>
-                        <input type="text" id="first" name="name" placeholder="YourUsername" required>
+                        <input type="text" id="first" name="name" placeholder="Username" required>
+                    </div>
+                    <div class="user-input">
+                        <label for="first">Surname:</label>
+                        <input type="text" id="first" name="surname" placeholder="UserSurname" required>
                     </div>
                     <div class="user-input">
                         <label for="first">Email:</label>

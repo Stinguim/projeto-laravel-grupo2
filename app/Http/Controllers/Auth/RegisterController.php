@@ -6,54 +6,37 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function create_account()
-    {
-        return view('auth.register');
+
+    public function show_register(){
+        return view("auth.register");
     }
 
-    public function store(Request $request)
-    {
-        /* Isto é a validação*/
+    public function create(Request $request){
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'surname' => 'required',
+            'email' => 'required|email|unique:user,email',
+            'password' => 'required|min:6',
         ]);
-
-        /* Isto é para inserir  na Database */
-        /* Atualizar com a base de dados que se tem */
-        $user = User::create([
-            "name" => $request['name'],
-            "email" => $request['email'],
-            "password" => Hash::make($request['password']),
-        ]);
-
-        Auth::login($user);
-
-        /* isto tem de se corrigir e trocar do debaixo por este
-        return redirect(RouteServiceProvider::);
-        */
-        return redirect("/");
-    }
-
-    public function authenticate(Request $request){
 
         $user = User::create([
             "name" => $request['name'],
+            "surname" => $request['surname'],
             "email" => $request['email'],
             "password" => $request['password'],
+            "user_type" => "client",
+            "company_id" => null,
         ]);
 
         Auth::login($user);
-        return redirect("/");
+
+        return redirect("/dashboard");
     }
 
-    public function show(){
-
-    }
 }

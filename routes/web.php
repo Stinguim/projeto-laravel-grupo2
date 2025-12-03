@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", function(){return view("auth.authenticate");});
 
-Route::get("/register", function(){return view("auth.register");});
+Route::get("/register", [RegisterController::class, "show_register"]);
+
+Route::post("/register", [RegisterController::class, "create"]);
 
 Route::get("/dashboard",function(){return view("dashboard");});
 
