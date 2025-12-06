@@ -11,7 +11,7 @@
         @section('content')
             <div class="b-container">
                 <div class="dashboard-container">
-                    <p>dashboard</p>
+                    <p>Username:</p>
                 </div>
             </div>
         @endsection

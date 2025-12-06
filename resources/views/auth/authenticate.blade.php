@@ -10,7 +10,8 @@
     <div class="bg-container">
         <div class="form-container">
             <h2>Login</h2>
-            <form action="" method="GET">
+            <form action="/" method="POST">
+                @csrf
                 <div class="user-input">
                     <label for="first">Email:</label>
                     <input type="text" id="first" name="email" placeholder="yourmail@gmail.com" required>

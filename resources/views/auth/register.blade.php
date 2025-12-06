@@ -10,23 +10,25 @@
         <div class="bg-container">
             <div class="form-container">
                 <h2>Register</h2>
-                <form action="" method="POST">
+                <form action="/register" method="POST">
                     @csrf
-                    <div class="user-input">
-                        <label for="first">Username:</label>
-                        <input type="text" id="first" name="name" placeholder="Username" required>
+                    <div class="username-inputs">
+                        <div class="ep-input user-input">
+                            <label for="first">Username:</label>
+                            <input type="text" id="first" name="name" placeholder="Username" required>
+                        </div>
+                        <div class="ep-input user-input">
+                            <label for="first">Surname:</label>
+                            <input type="text" id="surname" name="surname" placeholder="UserSurname" required>
                     </div>
-                    <div class="user-input">
-                        <label for="first">Surname:</label>
-                        <input type="text" id="first" name="surname" placeholder="UserSurname" required>
                     </div>
                     <div class="user-input">
                         <label for="first">Email:</label>
-                        <input type="text" id="first" name="email" placeholder="yourmail@gmail.com" required>
+                        <input type="text" id="email" name="email" placeholder="yourmail@gmail.com" required>
                     </div>
                     <div class="user-input">
                         <label for="first">Password:</label>
-                        <input type="text" id="first" name="password" placeholder="YourPassword" required>
+                        <input type="text" id="password" name="password" placeholder="YourPassword" required>
                     </div>
                     <button type="submit">Create Account</button>
                 </form>

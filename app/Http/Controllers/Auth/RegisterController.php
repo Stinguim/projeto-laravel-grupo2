@@ -37,6 +37,26 @@ class RegisterController extends Controller
         Auth::login($user);
 
         return redirect("/dashboard");
+
+    }
+
+    public function show_login(){
+        return view("auth.authenticate");
+    }
+
+    public function authenticate(Request $request){
+        $credentials = $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            $user = auth()->user();
+            $username = $user->name .' '. $user->surname;
+
+            return redirect("/dashboard")->with('username', $username) ;
+        }
     }
 
 }
