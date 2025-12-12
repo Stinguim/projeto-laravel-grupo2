@@ -56,8 +56,17 @@ class RegisterController extends Controller
             $user = auth()->user();
             $username = $user->name .' '. $user->surname;
 
-            return redirect("/primeira")->with('username', $username) ;
+            return redirect("/dashboard");
         }
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     public function layoutmainview(){

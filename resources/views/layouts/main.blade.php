@@ -18,7 +18,10 @@
             </nav>
             <nav class="bottom-nav sn-container">
                 <a href="/settings">Settings</a>
-                <a href="#logout">Log out</a>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button>Logout</button>
+                </form>
             </nav>
         </div>
     </div>

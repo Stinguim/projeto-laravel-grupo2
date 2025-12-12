@@ -12,6 +12,8 @@ Route::get("/register", [RegisterController::class, "show_register"]);
 
 Route::post("/register", [RegisterController::class, "create"]);
 
+Route::post("/logout", [RegisterController::class, "logout"]);
+
 Route::get("/dashboard",function(){return view("dashboard");});
 
 Route::get("/settings", function(){return view("settings");});
