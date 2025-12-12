@@ -36,6 +36,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
+//        return redirect("/primeira")->with('username', $user) ;
         return redirect("/dashboard");
 
     }
@@ -55,8 +56,18 @@ class RegisterController extends Controller
             $user = auth()->user();
             $username = $user->name .' '. $user->surname;
 
-            return redirect("/dashboard")->with('username', $username) ;
+            return redirect("/primeira")->with('username', $username) ;
         }
     }
 
+    public function layoutmainview(){
+        $username = $_GET['$user'];
+
+        return redirect()->route('segunda.view')->with('username', $username);
+    }
+
+    public function homepageview(){
+        $username = $_GET['$user'];
+        return view('/dashboard', compact('username'));
+    }
 }

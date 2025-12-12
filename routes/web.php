@@ -12,6 +12,11 @@ Route::get("/register", [RegisterController::class, "show_register"]);
 
 Route::post("/register", [RegisterController::class, "create"]);
 
-Route::get("/dashboard",function(){return view("dashboard", ['username'=>$username]);});
+Route::get("/dashboard",function(){return view("dashboard");});
 
 Route::get("/settings", function(){return view("settings");});
+
+#ver estas duas routes juntamente com as suas funcoes no register controler
+//Route::get("/primeira", [RegisterController::class, "layoutmainview"])->name("primeira.view");
+//
+//Route::get("/segunda", [RegisterController::class, "homepageview"])->name("segunda.view");

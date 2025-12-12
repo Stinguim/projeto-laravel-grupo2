@@ -6,4 +6,30 @@
     margin: 0;
 }
 
+.dash-containers{
+    display: flex;
+    flex-direction: row;
+
+    align-content: center;
+}
+.dash-stat{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 5px;
+    padding: 10px;
+
+    height: 90px;
+    width: 200px;
+
+    background-color: skyblue;
+    color: white;
+
+    border-radius: 15px;
+}
+
+.dash-stat > *{
+    height: 50%;
+}
+
 

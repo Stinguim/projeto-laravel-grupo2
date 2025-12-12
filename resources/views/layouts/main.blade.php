@@ -30,6 +30,9 @@
             </div>
             <div class="right-side">
                 <img src="/images/user.png" alt="UserPfp">
+{{--                @if($username)--}}
+{{--                    <p>{{$username}}</p>--}}
+{{--                @endif--}}
                 <p>Username</p>
             </div>
         </div>

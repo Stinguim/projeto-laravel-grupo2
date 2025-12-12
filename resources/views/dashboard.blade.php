@@ -10,8 +10,25 @@
     <body>
         @section('content')
             <div class="b-container">
-                <div class="dashboard-container">
-                    <p>Username:</p>
+                <div class="dash-containers">
+                    <div class="dash-stat">
+                        <p>Cleaned</p>
+                        <h2>Number Cleaned</h2>
+                    </div>
+                    <div class="dash-stat">
+                        <p>Filthy</p>
+                        <h2>Number Filthy</h2>
+                    </div>
+                    <div class="dash-stat">
+                        <p>Current Accommodations</p>
+                        <h2>Number Accommodations</h2>
+                    </div>
+                </div>
+                <div class="dash-containers">
+
+                </div>
+                <div class="dash-containers">
+
                 </div>
             </div>
         @endsection
