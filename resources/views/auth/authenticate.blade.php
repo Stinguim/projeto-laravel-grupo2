@@ -10,7 +10,7 @@
     <div class="bg-container">
         <div class="form-container">
             <h2>Login</h2>
-            <form action="/" method="POST">
+            <form action="/login" method="POST">
                 @csrf
                 <div class="user-input">
                     <label for="first">Email:</label>
@@ -27,6 +27,11 @@
                         <a class="reg_btn" href="/register">Register</a>
                     </div>
                 </div>
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <p>{{$error}}</p>
+                    @endforeach
+                @endif
             </form>
         </div>
     </div>

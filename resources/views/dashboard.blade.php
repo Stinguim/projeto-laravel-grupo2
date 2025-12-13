@@ -25,10 +25,9 @@
                     </div>
                 </div>
                 <div class="dash-containers">
-
-                </div>
-                <div class="dash-containers">
-
+                    <div class="graph-container">
+                        <p>graphs</p>
+                    </div>
                 </div>
             </div>
         @endsection

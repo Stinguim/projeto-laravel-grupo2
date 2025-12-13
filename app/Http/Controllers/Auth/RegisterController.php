@@ -9,15 +9,17 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
 
-    public function show_register(){
+    public function showRegister(){
         return view("auth.register");
     }
 
-    public function create(Request $request){
+    public function register(Request $request){
+
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
@@ -36,16 +38,15 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-//        return redirect("/primeira")->with('username', $user) ;
         return redirect("/dashboard");
 
     }
 
-    public function show_login(){
+    public function showLogin(){
         return view("auth.authenticate");
     }
 
-    public function authenticate(Request $request){
+    public function login(Request $request){
         $credentials = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
@@ -58,6 +59,10 @@ class RegisterController extends Controller
 
             return redirect("/dashboard");
         }
+
+        throw ValidationException::withMessages([
+            'credentials'=> 'Not the correct credentials',
+        ]);
     }
 
     public function logout(Request $request){
@@ -66,17 +71,9 @@ class RegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
-    public function layoutmainview(){
-        $username = $_GET['$user'];
 
-        return redirect()->route('segunda.view')->with('username', $username);
-    }
 
-    public function homepageview(){
-        $username = $_GET['$user'];
-        return view('/dashboard', compact('username'));
-    }
 }

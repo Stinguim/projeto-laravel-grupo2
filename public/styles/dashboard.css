@@ -32,4 +32,13 @@
     height: 50%;
 }
 
+.graph-container{
+    width: 350px;
+    height: 250px;
+    background-color: blue;
 
+    border: transparent;
+    border-radius: 15px;
+
+    margin: 10px 5px;
+}

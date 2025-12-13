@@ -30,14 +30,12 @@
                         <label for="first">Password:</label>
                         <input type="text" id="password" name="password" placeholder="YourPassword" required>
                     </div>
-                    @if($errors->any())
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    @endif
                     <button type="submit">Create Account</button>
+                    @if($errors->any())
+                        @foreach($errors->all() as $error)
+                            <p>{{$error}}</p>
+                        @endforeach
+                    @endif
                 </form>
             </div>
         </div>

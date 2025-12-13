@@ -11,17 +11,23 @@
         <div class="sub-nav-container">
             <h1>Cleaner App</h1>
             <nav class="sn-container">
+                @guest
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                @endguest
                 <a href="/dashboard">DashBoard</a>
-                <a href="#">Anchor 2</a>
-                <a href="#">Anchor 3</a>
-                <a href="#">Anchor 4</a>
+                <a href="#">Utilizadores</a>
+                <a href="#">Accommodations</a>
+                <a href="#">Schedule</a>
             </nav>
             <nav class="bottom-nav sn-container">
-                <a href="/settings">Settings</a>
-                <form action="/logout" method="POST">
-                    @csrf
-                    <button>Logout</button>
-                </form>
+                @auth
+                    <a href="/settings">Settings</a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button>Logout</button>
+                    </form>
+                @endauth
             </nav>
         </div>
     </div>
@@ -33,10 +39,12 @@
             </div>
             <div class="right-side">
                 <img src="/images/user.png" alt="UserPfp">
-{{--                @if($username)--}}
-{{--                    <p>{{$username}}</p>--}}
-{{--                @endif--}}
-                <p>Username</p>
+                @auth
+                    <span>{{Auth::user()->name}}</span>
+                @endauth
+                @guest
+                    <span>Username</span>
+                @endguest
             </div>
         </div>
         @yield('content')
