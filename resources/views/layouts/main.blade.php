@@ -1,4 +1,9 @@
-<!DOCTYPE>
+{{--<?php--}}
+{{--    $users = \App\Models\User::select('*')->get()   --}}
+{{--?>--}}
+{{--                @foreach($users as $user)--}}
+{{--                    <p>{{$user->name}}</p>--}}
+{{--                @endforeach--}}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,9 +21,9 @@
                     <a href="/register">Register</a>
                 @endguest
                 <a href="/dashboard">DashBoard</a>
-                <a href="#">Utilizadores</a>
-                <a href="#">Accommodations</a>
-                <a href="#">Schedule</a>
+                <a href="/users">Users</a>
+                <a href="/accommodations">Accommodations</a>
+                <a href="/schedule">Schedule</a>
             </nav>
             <nav class="bottom-nav sn-container">
                 @auth
@@ -35,7 +40,6 @@
         <div class="header-container">
             <div class="left-side">
                 <h2 id="title_h2">DashBoard</h2>
-{{--                <script src="../../js/dynamic_tags.js">dynamic_h2()</script>--}}
             </div>
             <div class="right-side">
                 <img src="/images/user.png" alt="UserPfp">

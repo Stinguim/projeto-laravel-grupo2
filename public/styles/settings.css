@@ -1,7 +1,19 @@
 .p-container{
-    margin: 10px 10px 0 10px;
+    margin: 20px;
+
+    background-color: whitesmoke;
 }
 
-.b-container  *{
-    margin: 0;
+.details-container{
+    margin: 0 0 0 10px;
 }
+
+.user-details{
+    display: flex;
+    align-content: center;
+}
+
+.user-n-s .user-surname{
+    margin-left: 10px;
+}
+
