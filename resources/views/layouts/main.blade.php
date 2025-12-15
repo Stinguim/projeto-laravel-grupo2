@@ -21,7 +21,9 @@
                     <a href="/register">Register</a>
                 @endguest
                 <a href="/dashboard">DashBoard</a>
+            @if(Auth::user()->user_type == 'admin')
                 <a href="/users">Users</a>
+            @endif
                 <a href="/accommodations">Accommodations</a>
                 <a href="/schedule">Schedule</a>
             </nav>

@@ -23,7 +23,7 @@
                 <div class="user-type user-details">
                     <p><strong>User Type: </strong>{{Auth::user()->user_type}}</p>
                 </div>
-                @if(Auth::user()->user_type == ('supervisor' || 'employ '))
+                @if(Auth::user()->user_type == 'supervisor' || Auth::user()->user_type =='employ '))
                     <h4><strong>Company ID:</strong> {{Auth::user()->company_id}}</h4>
                 @endif
 

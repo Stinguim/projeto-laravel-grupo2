@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'surname' => 'required',
             'email' => 'required|email|unique:user,email',
             'password' => 'required|min:6',
+            'user_type' => 'required|string',
         ]);
 
         $user = User::create([
@@ -32,7 +33,7 @@ class RegisterController extends Controller
             "surname" => $request['surname'],
             "email" => $request['email'],
             "password" => $request['password'],
-            "user_type" => "client",
+            "user_type" => $request['user_type'],
             "company_id" => null,
         ]);
 
