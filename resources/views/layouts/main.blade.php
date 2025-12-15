@@ -41,7 +41,7 @@
     <div class="main-nb">
         <div class="header-container">
             <div class="left-side">
-                <h2 id="title_h2">DashBoard</h2>
+                <h2 id="title_h2">{{ request()->route('title') }}</h2>
             </div>
             <div class="right-side">
                 <img src="/images/user.png" alt="UserPfp">

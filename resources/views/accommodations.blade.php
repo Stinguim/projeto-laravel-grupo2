@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 @extends("layouts.main")
 @section('title', 'Accommodations')
 <html lang="en">
@@ -10,8 +14,6 @@
 <body>
     @section('content')
         <div class="a-container">
-{{--            como fazer para buscar as coisas da db--}}
-{{--            @if(DB::accomo) @endif--}}
             <div class="acc-container">dasdads</div>
         </div>
     @endsection

@@ -73,10 +73,6 @@ body{
     height: 50%;
 }
 
-.sn-container > a:focus{
-    background-color: green;
-}
-
 .bottom-nav{
     justify-content: end;
 }
