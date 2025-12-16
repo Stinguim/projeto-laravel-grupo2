@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/dashboard",function(){return view("dashboard");})->defaults('title', 'Dashboard');
     Route::get("/users",function(){return view("users");})->defaults('title', 'Users');
     Route::get("/accommodations",function(){return view("accommodations");})->defaults('title', 'Accommodations');
+    Route::get("/accommodations",function(){return view("accommodations");})->defaults('title', 'Accommodations');
     Route::get("/schedule",function(){return view("schedule");})->defaults('title', 'Schedule');
 
     Route::get("/settings", function(){return view("settings");});
