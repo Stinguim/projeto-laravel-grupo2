@@ -14,7 +14,9 @@
 <body>
     @section('content')
         <div class="a-container">
-            <div class="acc-container">dasdads</div>
+            <div class="acc-container">
+
+            </div>
         </div>
     @endsection
 </body>

@@ -25,7 +25,6 @@ class User extends Authenticatable
         'email',
         'password',
         'user_type',
-        'company_id',
     ];
 
     /**
@@ -50,4 +49,46 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin(){
+        return $this->user_type === 'admin';
+    }
+
+    public function isSupervisor(){
+        return $this->user_type === 'supervisor';
+    }
+
+    public function isEmployee(){
+        return $this->user_type === 'employ';
+    }
+
+    public function isClient(){
+        return $this->user_type === 'client';
+    }
+
+
+    public function lodging(){
+        return $this->hasOne(Lodging::class, 'id_lodging');
+    }
+
+    public function cleaningRequest(){
+        return $this->hasMany(CleaningRequest::class,'id_cleaning_request');
+    }
+
+    public function company(){
+        return $this->belongsTo(Company::class, 'id_company');
+    }
+
+    public function cleaning(){
+        return $this->hasOne(Cleaning::class, 'id_cleaning');
+    }
+
+    public function cleaningTeam(){
+        return $this->belongsTo(CleaningTeam::class, 'id_cleaning_team');
+    }
+
+    public function supervisorTeam(){
+        return $this->hasMany(CleaningTeam::class, 'id_cleaning_team');
+    }
+
 }
