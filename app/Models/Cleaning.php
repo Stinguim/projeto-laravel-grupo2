@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cleaning extends Model
 {
 
-    protected $table = 'cleaning_team';
+    protected $table = 'cleaning';
 
     public $timestamps = false;
 

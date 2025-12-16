@@ -6,3 +6,8 @@
 .sch-container{
     margin: 15px;
 }
+
+.cleanings-container{
+    display: flex;
+    flex-direction: column;
+}
