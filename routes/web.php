@@ -28,5 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::delete("/settings/{id}",[UserController::class, "destroy"] )->name("settings.destroy");
 });
 
+# Route de obter todos os utilizadores
+Route::get('/users', [UserController::class, "index"])->name("users.index");
 
+# Route de editar um utilizador em especifico
+Route::get("/users/{id}/edit",[UserController::class, "edit"])->name("users.edit");
 
+# Route para dar update um utilizador em específico
+Route::put("/users/{id}/update",[UserController::class, "update"])->name("users.update");
