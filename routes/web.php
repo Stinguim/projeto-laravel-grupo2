@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/users",function(){return view("users");})->defaults('title', 'Users');
     Route::get("/accommodations", [AccommodationController::class, 'index']);
     Route::get("/accommodations/create", [AccommodationController::class, 'create']);
+    Route::post("/accommodations/create", [AccommodationController::class, 'store']);
     Route::get("/schedule",function(){return view("schedule");})->defaults('title', 'Schedule');
 
     Route::get("/settings", function(){return view("settings");});

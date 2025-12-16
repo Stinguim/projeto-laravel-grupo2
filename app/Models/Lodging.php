@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Lodging extends Model
 {
-    protected   $table = 'lodging';
+    protected $table = 'lodging';
     public $timestamps = false;
     protected $primaryKey = 'id_lodging';
 
@@ -25,7 +25,7 @@ class Lodging extends Model
     ];
 
     public function user(){
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id_user');
     }
 
     public function company(){

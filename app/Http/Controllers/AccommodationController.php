@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lodging;
 
 class AccommodationController extends Controller
 {
@@ -11,7 +12,15 @@ class AccommodationController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $lodging = Lodging::where('user_id', $user->id_user)->get();
+
+        return view("accommodations.index", ['lodging' => $lodging]);
+    }
+
+    public function create()
+    {
+        return view("accommodations.create");
     }
 
     /**
@@ -19,7 +28,15 @@ class AccommodationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+        $lodging = new Lodging();
+
+        $lodging->name = $request->input('name');
+        $lodging->description = $request->input('description');
+        $lodging->address = $request->input('address');
+        $lodging->user_id = $user->id_user;
+        $lodging->save();
+        return redirect('/accommodations');
     }
 
     /**

@@ -1,12 +1,21 @@
 .a-container{
-    height: fit-content;
+    height: 85%;
     margin: 20px;
 
     background-color: whitesmoke;
     border-radius: 10px;
+
+    .default-form {
+        width: 35%;
+        height: 85%;
+    }
 }
 
 .acc-container{
+    display: flex;
     margin: 15px;
+    width: 85%;
+    justify-content: space-between;
+    justify-items: left;
 }
 

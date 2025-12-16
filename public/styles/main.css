@@ -187,3 +187,67 @@ body{
     outline: none;
 }
 
+.default-form {
+    width: 100%;
+    display: block;
+    padding: 10px;
+
+    > * {
+        width: 100%;
+        display: flex;
+    }
+
+    > *:not(button) {
+        justify-items: left;
+        justify-content: space-between;
+    }
+
+    > *:not(:first-child) {
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+
+        &:focus-within {
+            .input-container label {
+                color: #00a5a7;
+            }
+        }
+    }
+
+    .input-container {
+        width: 100%;
+        height: 100%;
+        display: block;
+
+        * {
+            width: 100%;
+            height: 50%;
+        }
+
+        *:not(:last-child) {
+            padding-bottom: 4px;
+        }
+    }
+
+    .input-container input{
+        border-style: solid;
+        border-radius: 4px;
+        outline: none;
+    }
+
+    .input-container label {
+        color: black;
+        font-weight: bold;
+    }
+
+    .input-container input:hover, .input-container input:focus {
+        border-color: #00a5a7;
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
