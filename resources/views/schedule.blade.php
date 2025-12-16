@@ -1,3 +1,4 @@
+
 @extends('layouts.main')
 @section('title','Schedule')
 <html lang="en">
@@ -11,10 +12,13 @@
     @section('content')
             <div class="s-container">
                 <div class="sch-container">
-                    <p>Valdenia</p>
-                    @foreach($cleanings as $cleaning)
-                        <p>{{$cleaning}}</p>
-                    @endforeach
+                    <p>Cleaning To Do</p>
+                    <div class="cleanings-container">
+                        @foreach($cleanings as $cleaning)
+                            <p>{{$cleaning}}</p>
+                            <p>{{$cleaning->cleaning_request_id}} |{{$cleaning->date}} - {{$cleaning->estado}}| Team: {{$cleaning->cleaning_team_id}}</p>
+                        @endforeach
+                    </div>
                 </div>
             </div>
     @endsection
