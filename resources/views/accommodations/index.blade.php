@@ -27,6 +27,10 @@
                     <p>{{ $lodge->address }}</p>
                     <p>{{ $lodge->description }}</p>
                     <p>{{ $lodge->validated ? 'Sim' : 'Não' }}</p>
+                    <button type="button" class="default-button" {{ $lodge->validated ? '' : 'disabled' }}
+                            onclick="url('/accommodations/{{ $lodge->id_lodge }}/pedido-limpeza')">
+                        Pedir limpeza
+                    </button>
                 </div>
             @endforeach
         </div>
