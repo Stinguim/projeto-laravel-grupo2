@@ -29,7 +29,7 @@
                         </div>
                         <div class="ep-input user-input">
                             <label for="first">Password:</label>
-                            <input type="text" id="password" name="password" placeholder="YourPassword" required>
+                            <input type="password" id="password" name="password" placeholder="YourPassword" required>
                         </div>
                     </div>
                     <div class="username-inputs">
