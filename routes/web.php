@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AccommodationController;
+use App\Http\Controllers\CleaningController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::get("/accommodations", [AccommodationController::class, 'index']);
     Route::get("/accommodations/create", [AccommodationController::class, 'create']);
     Route::post("/accommodations/create", [AccommodationController::class, 'store']);
-    Route::get("/schedule",function(){return view("schedule");})->defaults('title', 'Schedule');
+    Route::get("/schedule", [CleaningController::class, 'showSchedule'])->defaults('title', 'Schedule');
 
-    Route::get("/settings", function(){return view("settings");});
+    Route::get("/settings", function(){return view("settings");})->name('settings.index')->defaults('title', 'Settings');
     Route::delete("/settings/{id}",[UserController::class, "destroy"] )->name("settings.destroy");
 });
 

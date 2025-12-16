@@ -8,8 +8,6 @@ class Cleaning extends Model
 {
 
     protected $table = 'cleaning_team';
-    protected $primarykey = 'cleaning_request_id';
-    protected $primaryKey = 'cleaning_team_id';
 
     public $timestamps = false;
 
