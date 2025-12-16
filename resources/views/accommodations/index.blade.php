@@ -27,10 +27,24 @@
                     <p>{{ $lodge->address }}</p>
                     <p>{{ $lodge->description }}</p>
                     <p>{{ $lodge->validated ? 'Sim' : 'Não' }}</p>
-                    <button type="button" class="default-button" {{ $lodge->validated ? '' : 'disabled' }}
-                            onclick="url('/accommodations/{{ $lodge->id_lodge }}/pedido-limpeza')">
-                        Pedir limpeza
-                    </button>
+                    @if(auth()->user()->user_type == 'admin')
+                        <form class="default-form" action="{{ url('/accommodations', ['id' => $lodge->id_lodging]) }}"
+                              method="POST">
+                            @method('patch')
+                            @csrf
+                            <button class="default-button"
+                                    type="Submit"
+                                    {{ $lodge->validated ? 'disabled' : '' }}>
+                                {{$lodge->validated ? 'Aprovado' : 'Aprovar'}}
+                            </button>
+                        </form>
+                    @else
+                        <button type="button" class="default-button" {{ $lodge->validated ? '' : 'disabled' }}
+                        onclick="url('/accommodations/{{ $lodge->id_lodge }}/pedido-limpeza')">
+                            Pedir limpeza
+                        </button>
+                    @endif
+
                 </div>
             @endforeach
         </div>

@@ -13,7 +13,12 @@ class AccommodationController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $lodging = Lodging::where('user_id', $user->id_user)->get();
+        if($user->user_type == 'admin') {
+            $lodging = Lodging::all();
+        } else {
+            $lodging = Lodging::where('user_id', $user->id_user)->get();
+        }
+
 
         return view("accommodations.index", ['lodging' => $lodging]);
     }
@@ -61,5 +66,18 @@ class AccommodationController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function approve(string $id)
+    {
+        $user = auth()->user();
+        if($user->user_type == 'admin') {
+            $lodge = Lodging::find($id);
+            if($lodge) {
+                $lodge->validated = 1;
+                $lodge->save();
+            }
+        }
+        return redirect('/accommodations');
     }
 }

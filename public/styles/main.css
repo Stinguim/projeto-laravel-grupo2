@@ -134,6 +134,7 @@ body{
     text-align: center;
     font-weight: bolder;
     color: white;
+    border-style: none;
 }
 
 .default-button:hover{
@@ -208,7 +209,7 @@ body{
         justify-content: space-between;
     }
 
-    > *:not(:first-child) {
+    + .container:not(:first-child) {
         margin-top: 10px;
     }
 
