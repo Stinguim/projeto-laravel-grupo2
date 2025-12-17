@@ -11,13 +11,28 @@
 <body>
     @section('content')
             <div class="s-container">
+                <h2>Cleaning To Do</h2>
                 <div class="sch-container">
-                    <p>Cleaning To Do</p>
                     <div class="cleanings-container">
-                        @foreach($cleanings as $cleaning)
-                            <p>{{$cleaning}}</p>
-                            <p>{{$cleaning->cleaning_request_id}} |{{$cleaning->date}} - {{$cleaning->estado}}| Team: {{$cleaning->cleaning_team_id}}</p>
-                        @endforeach
+                        <table>
+                            <tr>
+                                <th>Date</th>
+                                <th>Accommodation</th>
+                                <th>Address</th>
+                                <th>State</th>
+                                <th>Team</th>
+                            </tr>
+                            @foreach($cleanings as $cleaning)
+                                <tr>
+                                    <td>{{$cleaning->date}}</td>
+                                    <td>{{$cleaning->lodging_name}}</td>
+                                    <td>{{$cleaning->address}}</td>
+                                    <td>{{$cleaning->state}}</td>
+                                    <td>{{$cleaning->team_id}}</td>
+                                    <td><a href="/schedule/{{$cleaning->lodging_id}}">View</a></td>
+                                </tr>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </div>

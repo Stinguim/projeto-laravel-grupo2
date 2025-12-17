@@ -4,6 +4,10 @@ body{
     margin: 0;
 }
 
+h1{
+    margin: 0 0 35px 0;
+}
+
 .bg-container{
     width: 300px;
 

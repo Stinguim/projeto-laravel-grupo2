@@ -39,7 +39,7 @@
                                 <option value="client">client</option>
                                 <option value="employ">employ</option>
                                 <option value="supervisor">supervisor</option>
-                                <option value="admin">admin</option>
+{{--                                <option value="admin">admin</option>--}}
                             </select>
                         </div>
                     </div>

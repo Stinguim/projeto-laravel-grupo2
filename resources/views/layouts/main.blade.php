@@ -25,7 +25,9 @@
                 <a href="/users">Users</a>
             @endif
                 <a href="/accommodations">Accommodations</a>
+            @if(Auth::user()->user_type != 'client')
                 <a href="/schedule">Schedule</a>
+            @endif
             </nav>
             <nav class="bottom-nav sn-container">
                 @auth

@@ -1,6 +1,5 @@
 .s-container{
     margin: 20px;
-    border: 1px solid;
 }
 
 .sch-container{
@@ -10,4 +9,17 @@
 .cleanings-container{
     display: flex;
     flex-direction: column;
+}
+
+table{
+    border-spacing: 0;
+    border: 1px solid;
+}
+
+td{
+    text-align: center;
+}
+
+th{
+    border-top: 0;
 }
