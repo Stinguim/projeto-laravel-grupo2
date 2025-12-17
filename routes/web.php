@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/accommodations", [AccommodationController::class, 'index']);
     Route::patch("/accommodations/{id}", [AccommodationController::class, 'approve']);
+    Route::get("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanupForm']);
+    Route::post("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanup']);
     Route::get("/accommodations/create", [AccommodationController::class, 'create']);
     Route::post("/accommodations/create", [AccommodationController::class, 'store']);
 

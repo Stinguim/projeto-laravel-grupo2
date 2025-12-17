@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CleaningRequest extends Model
 {
-    protected $table = 'cleaning_requests';
+    protected $table = 'cleaning_request';
     protected $primaryKey = 'id_cleaning_request';
 
     public $timestamps = false;
@@ -28,5 +28,7 @@ class CleaningRequest extends Model
         return $this->belongsTo(Company::class, 'id_company');
     }
 
-
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'user_id', 'id_user');
+    }
 }

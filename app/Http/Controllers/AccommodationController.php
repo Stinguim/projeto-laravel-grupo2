@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lodging;
+use App\Models\Company;
+use App\Models\CleaningRequest;
 
 class AccommodationController extends Controller
 {
@@ -18,7 +20,6 @@ class AccommodationController extends Controller
         } else {
             $lodging = Lodging::where('user_id', $user->id_user)->get();
         }
-
 
         return view("accommodations.index", ['lodging' => $lodging]);
     }
@@ -78,6 +79,30 @@ class AccommodationController extends Controller
                 $lodge->save();
             }
         }
+        return redirect('/accommodations');
+    }
+
+    public function scheduleCleanupForm(string $id)
+    {
+        $lodge = Lodging::find($id);
+        if($lodge) {
+            $companies = Company::all();
+            return view('accommodations.schedule_cleaning', ['lodge' => $lodge, 'companies' => $companies]);
+        } else {
+            return redirect('/accommodations');
+        }
+    }
+
+    public function scheduleCleanup(Request $request)
+    {
+        $user = auth()->user();
+        $cleaningRequest = new CleaningRequest();
+        $cleaningRequest->data_request = $request->input('date');
+        $cleaningRequest->descricao = $request->input('description');
+        $cleaningRequest->lodging_id = $request->input('lodging_id');
+        $cleaningRequest->user_id = $user->id_user;
+        $cleaningRequest->company_id = $request->input('company_id');
+        $cleaningRequest->save();
         return redirect('/accommodations');
     }
 }

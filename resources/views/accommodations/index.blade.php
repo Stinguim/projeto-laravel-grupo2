@@ -38,9 +38,14 @@
                                 {{$lodge->validated ? 'Aprovado' : 'Aprovar'}}
                             </button>
                         </form>
+                    @elseif($lodge->validated)
+                        <a type="button" class="default-button"
+                           href="{{ url('/accommodations/'. $lodge->id_lodging .'/schedule-cleaning')
+                        }}">
+                            Pedir limpeza
+                        </a>
                     @else
-                        <button type="button" class="default-button" {{ $lodge->validated ? '' : 'disabled' }}
-                        onclick="url('/accommodations/{{ $lodge->id_lodge }}/pedido-limpeza')">
+                        <button type="button" class="default-button" disabled>
                             Pedir limpeza
                         </button>
                     @endif
