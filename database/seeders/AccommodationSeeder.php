@@ -2,19 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Lodging;
 
-class DatabaseSeeder extends Seeder
+class AccommodationSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
-         User::factory(4)->create();
+        Lodging::factory(5)->create();
     }
 }
