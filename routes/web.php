@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/users",function(){return view("users");})->defaults('title', 'Users');
 
     Route::get("/accommodations", [AccommodationController::class, 'index']);
+    Route::get("/accommodations/{id}", [AccommodationController::class, 'accommodation']);
     Route::patch("/accommodations/{id}", [AccommodationController::class, 'approve']);
     Route::get("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanupForm']);
     Route::post("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanup']);

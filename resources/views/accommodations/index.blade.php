@@ -23,10 +23,14 @@
             </div>
             @foreach($lodging as $lodge)
                 <div class="acc-container">
-                    <p>{{ $lodge->name }}</p>
-                    <p>{{ $lodge->address }}</p>
-                    <p>{{ $lodge->description }}</p>
-                    <p>{{ $lodge->validated ? 'Sim' : 'Não' }}</p>
+                    <a class="acc-container clickable-element"
+                       href="{{ url('/accommodations', ['id' => $lodge->id_lodging]) }}">
+                        <p>{{ $lodge->name }}</p>
+                        <p>{{ $lodge->address }}</p>
+                        <p>{{ $lodge->description }}</p>
+                        <p>{{ $lodge->validated ? 'Sim' : 'Não' }}</p>
+                    </a>
+
                     @if(auth()->user()->user_type == 'admin')
                         <form class="default-form" action="{{ url('/accommodations', ['id' => $lodge->id_lodging]) }}"
                               method="POST">
@@ -34,7 +38,7 @@
                             @csrf
                             <button class="default-button"
                                     type="Submit"
-                                    {{ $lodge->validated ? 'disabled' : '' }}>
+                                {{ $lodge->validated ? 'disabled' : '' }}>
                                 {{$lodge->validated ? 'Aprovado' : 'Aprovar'}}
                             </button>
                         </form>
@@ -49,8 +53,8 @@
                             Pedir limpeza
                         </button>
                     @endif
-
                 </div>
+
             @endforeach
         </div>
     </div>

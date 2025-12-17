@@ -105,4 +105,17 @@ class AccommodationController extends Controller
         $cleaningRequest->save();
         return redirect('/accommodations');
     }
+
+    public function accommodation(string $id)
+    {
+        $lodge = Lodging::find($id);
+        if($lodge) {
+            $cleaning = CleaningRequest::where('lodging_id', $id)->get();
+            foreach($cleaning as $c) {
+                $c->company = Company::find($c->company_id)->first()->name;
+            }
+            return view('accommodations.accommodation', ['lodge' => $lodge, 'cleaning' => $cleaning]);
+        }
+        return redirect('/accommodations');
+    }
 }

@@ -139,6 +139,7 @@ h1{
     font-weight: bolder;
     color: white;
     border-style: none;
+    max-height: fit-content;
 }
 
 .default-button:hover{
@@ -261,4 +262,14 @@ h1{
 
 .bold {
     font-weight: bold;
+}
+
+.clickable-element {
+    color: black;
+    text-decoration: none;
+}
+
+.clickable-element:hover {
+    background-color: #a0aec0;
+    cursor: pointer;
 }
