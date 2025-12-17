@@ -23,3 +23,8 @@ td{
 th{
     border-top: 0;
 }
+
+.a-r-container{
+    display: flex;
+
+}
