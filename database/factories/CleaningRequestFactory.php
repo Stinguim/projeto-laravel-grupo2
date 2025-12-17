@@ -10,7 +10,7 @@ use App\Models\Lodging;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class CleaningRequestSeederFactory extends Factory
+class CleaningRequestFactory extends Factory
 {
     /**
      * Define the model's default state.
