@@ -19,7 +19,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => $this->faker->company(),
-            'user_id' => User::where('user_type', 'supervisor')->inRandomOrder()->first()->id
+            'user_id' => User::where('user_type', 'supervisor')->inRandomOrder()->first()->id_user
         ];
     }
 }

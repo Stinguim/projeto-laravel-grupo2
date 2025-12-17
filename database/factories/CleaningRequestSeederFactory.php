@@ -4,26 +4,27 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use App\Models\Company;
+use App\Models\Lodging;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class AccommodationFactory extends Factory
+class CleaningRequestSeederFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'description' => $this->faker->text(),
-            'address' => $this->faker->address(),
+            'data_request' => $this->faker->date(),
+            'descricao' => $this->faker->sentence(),
+            'lodging_id' => Lodging::all()->random()->id_lodging,
             'user_id' => User::where('user_type', 'client')->inRandomOrder()->first()->id_user,
-            'validated' => $this->faker->boolean(),
+            'company' => Company::all()->random()->id_company
         ];
     }
 }
