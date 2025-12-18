@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Lodging;
 
-class AccommodationSeeder extends Seeder
+class LodgingSeeder extends Seeder
 {
     /**
      * Run the database seeds.

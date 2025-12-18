@@ -8,11 +8,11 @@ use Illuminate\Notifications\Notifiable;
 
 class Lodging extends Model
 {
+    use HasFactory, Notifiable;
+
     protected $table = 'lodging';
     public $timestamps = false;
     protected $primaryKey = 'id_lodging';
-
-    use HasFactory, Notifiable;
 
     /**
     * @var list<string>

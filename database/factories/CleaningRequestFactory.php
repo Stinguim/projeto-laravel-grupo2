@@ -24,7 +24,7 @@ class CleaningRequestFactory extends Factory
             'descricao' => $this->faker->sentence(),
             'lodging_id' => Lodging::all()->random()->id_lodging,
             'user_id' => User::where('user_type', 'client')->inRandomOrder()->first()->id_user,
-            'company' => Company::all()->random()->id_company,
+            'company_id' => Company::all()->random()->id_company,
             'state' => 0
         ];
     }
