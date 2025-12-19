@@ -28,12 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::get("/dashboard",function(){return view("dashboard");})->defaults('title', 'Dashboard');
 
     Route::get("/accommodations", [AccommodationController::class, 'index']);
+    Route::get("/accommodations/create", [AccommodationController::class, 'create']);
+    Route::post("/accommodations/create", [AccommodationController::class, 'store']);
     Route::get("/accommodations/{id}", [AccommodationController::class, 'accommodation']);
     Route::patch("/accommodations/{id}", [AccommodationController::class, 'approve']);
     Route::get("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanupForm']);
     Route::post("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanup']);
-    Route::get("/accommodations/create", [AccommodationController::class, 'create']);
-    Route::post("/accommodations/create", [AccommodationController::class, 'store']);
 
     Route::get("/schedule", [CleaningController::class, 'showSchedule'])->defaults('title', 'Schedule');
     Route::get("/schedule/{id}", [CleaningController::class, 'showScheduleLodging'])->name('schedule.id')->defaults('title', 'Schedule');
