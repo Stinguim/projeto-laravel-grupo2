@@ -4,16 +4,68 @@
     background-color: whitesmoke;
 }
 
-.details-container{
-    margin: 0 0 0 10px;
+.profile-page {
+    max-width: 800px;
+    margin: 40px auto;
 }
 
-.user-details{
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
     display: flex;
-    align-content: center;
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
-.user-n-s .user-surname{
-    margin-left: 10px;
+.form-group input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn-primary {
+    background: #4da3ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+}
+
+.card.danger {
+    border-left: 5px solid #e74c3c;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn-danger, .btn-primary, .btn-secondary{
+    cursor: pointer;
 }
 

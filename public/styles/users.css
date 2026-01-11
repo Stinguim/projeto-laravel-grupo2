@@ -2,6 +2,23 @@
     margin: 10px;
 }
 
+.sb-input{
+    padding: 5px;
+    border: 1px solid teal;
+}
+
+.sb-input:focus-visible{
+    outline: 1px solid teal;
+}
+
+.sb-btn{
+    padding: 5px;
+    color: white;
+    background-color: teal;
+    border: 1px solid teal;
+}
+
+
 .users-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -41,8 +58,9 @@
 
 .role.client { background: #e0e0e0; }
 .role.admin { background: #4da3ff; color: #fff; }
-/*.role.supervisor { background-color:  }*/
-/*.role.employ { background-color:  }*/
+.role.supervisor { background: #6fcf97; color: #fff; }
+.role.employ { background-color: #f2c94c; color: #333; }
+
 .actions button {
     margin: 5px;
 }

@@ -38,6 +38,6 @@ Route::middleware('auth')->group(function () {
     Route::get("/schedule", [CleaningController::class, 'showSchedule'])->defaults('title', 'Schedule');
     Route::get("/schedule/{id}", [CleaningController::class, 'showScheduleLodging'])->name('schedule.id')->defaults('title', 'Schedule');
 
-    Route::get("/settings", function(){return view("settings");})->name('settings.index')->defaults('title', 'Settings');
+    Route::get("/settings", [UserController::class, "settings"] )->name('settings.index')->defaults('title', 'Settings');
     Route::delete("/settings/{id}",[UserController::class, "destroy"] )->name("settings.destroy");
 });

@@ -32,7 +32,7 @@
             <div class="m-right-side">
                 <nav class="bottom-nav sn-container">
                     @auth
-                        <h3>{{Auth::user()->name}}</h3>
+                        <h3>{{ucfirst(Auth::user()->name)}}</h3>
                         <a class="anchor-settings" href="/settings"><i class="material-icons">&#xe8b8;</i></a>
                         <form action="/logout" method="POST">
                             @csrf

@@ -43,6 +43,10 @@ class UserController extends Controller
         return redirect("/users");
     }
 
+    public function settings(){
+        $user = auth()->user();
+        return view("settings", ["user" => $user]);
+    }
 
     public function destroy($id){
         $user = User::findOrFail($id);
