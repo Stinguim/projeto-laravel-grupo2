@@ -1,84 +1,134 @@
 body{
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+}
+
+h3{
+    text-align: center;
     margin: 0;
 }
 
-h1{
-    margin: 0 0 35px 0;
-}
 
 .bg-container{
-    width: 300px;
-
     display: flex;
+    flex-direction: row;
     justify-content: center;
 
-    background-color: lightblue;
+    background-color: skyblue;
+    /*background-color: #2EC4B6;*/
 }
 
 .sub-nav-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    width: 100%;
+    /*margin: 20px 0 0 0;*/
+}
 
-    width: 90%;
+.m-left-side img{
+    height: 45px;
+    margin: 0 10px;
+}
 
-    margin: 20px 0 0 0;
+.m-left-side, .m-right-side{
+    width: 15%;
+}
+
+.m-center-side{
+    width: 70%
+}
+
+.m-center-side, .m-right-side, .m-left-side{
+    /*height: 100%;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0;
 }
 
 .sn-container{
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
+
     align-items: center;
 
     width: 100%;
 }
 
-.sn-container form{
+.m-center-side a{
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-}
-
-.sn-container form button{
-    cursor: pointer;
-    background-color: transparent;
-}
-
-.sn-container a,.sn-container form button{
-    display: flex;
-    width: 100%;
+    /*width: 100%;*/
 
     justify-content: center;
 
-    padding: 10px 0;
-    margin: 5px 0;
+    padding: 10px;
+    margin: 5px 2px;
 
-    border: 3px solid cadetblue;
-    border-radius: 10px;
+    /*border: 3px solid teal;*/
+    border-radius: 20px;
 
     text-decoration: none;
     text-align: center;
     font-weight: bolder;
+
     color: black;
+    background-color: white;
 }
 
-.sn-container a:hover, .sn-container form button:hover{
-    background-color: cadetblue;
+.m-center-side a:hover{
     color: white;
-
-    border: 3px solid white;
+    background-color: teal;
 }
+
+/*.sn-container a:hover{*/
+/*    background-color: cadetblue;*/
+/*    color: white;*/
+/*}*/
 
 .sn-container, .bottom-nav{
     height: 50%;
 }
 
+.bottom-nav form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 0 0;
+}
+
 .bottom-nav{
     justify-content: end;
+}
+
+.bottom-nav > *{
+    margin-right: 5px;
+}
+
+.btn-logout, .anchor-settings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: skyblue;
+    cursor: pointer;
+
+    height: 35px;
+    width: 35px;
+
+    border: none;
+    border-radius: 50px;
+
+    background-color: white;
+}
+
+.btn-logout:hover, .anchor-settings:hover{
+    color: white;
+    background-color: teal;
 }
 
 .main-nb{

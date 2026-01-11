@@ -1,0 +1,48 @@
+.b-container{
+    margin: 10px;
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.user-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.user-card:hover {
+    transform: translateY(-4px);
+}
+
+.avatar {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.email {
+    color: #666;
+    font-size: 14px;
+}
+
+.role {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.role.client { background: #e0e0e0; }
+.role.admin { background: #4da3ff; color: #fff; }
+/*.role.supervisor { background-color:  }*/
+/*.role.employ { background-color:  }*/
+.actions button {
+    margin: 5px;
+}
