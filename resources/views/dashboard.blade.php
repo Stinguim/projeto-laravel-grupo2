@@ -15,11 +15,11 @@
                     <div class="stats-grid">
                         <div class="stat-card">
                             <h3>👥 Users</h3>
-                            <p class="stat-number">124</p>
+                            <p class="stat-number">{{$users}}</p>
                         </div>
                         <div class="stat-card">
                             <h3>🏠 Accommodations</h3>
-                            <p class="stat-number">38</p>
+                            <p class="stat-number">{{$accommodations}}</p>
                         </div>
 {{--                        <div class="stat-card">--}}
 {{--                            <h3>📅 Schedules</h3>--}}
@@ -27,7 +27,7 @@
 {{--                        </div>--}}
                         <div class="stat-card">
                             <h3>🧹 Requests</h3>
-                            <p class="stat-number">{{$users->$users}} Pending</p>
+                            <p class="stat-number">{{$cleaningRequests}} Pending</p>
                         </div>
                     </div>
 
