@@ -16,7 +16,7 @@
                         @if(!is_null($users))
                             <div class="stat-card">
                                 <h3>👥 Users</h3>
-    {{--                            <p class="stat-number">{{$users}}</p>--}}
+                                <p class="stat-number">{{$users}}</p>
                             </div>
                         @endif
                         @if(!(is_null($accommodations) and is_null($cleanCanceled) and is_null($cleanDoing) and
