@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->enum('user_type',
-                ['admin', 'supervisor', 'employ', 'client'])
+                ['admin', 'supervisor', 'employee', 'client'])
                 ->default('client');
         });
     }
