@@ -19,10 +19,25 @@
     {{--                            <p class="stat-number">{{$users}}</p>--}}
                             </div>
                         @endif
-                        @if(!is_null($accommodations))
+                        @if(!(is_null($accommodations) and is_null($cleanCanceled) and is_null($cleanDoing) and
+                            is_null($cleanDone) and is_null($cleanToDo)))
                             <div class="stat-card">
                                 <h3>🏠 Accommodations</h3>
-                                <p class="stat-number">{{$accommodations}}</p>
+                                @if(!is_null($accommodations))
+                                    <p class="stat-number">{{$accommodations}} Accommodations</p>
+                                @endif
+                                @if(!is_null($cleanCanceled))
+                                    <p class="stat-number">{{$cleanCanceled}} Cleaning requests canceled</p>
+                                @endif
+                                @if(!is_null($cleanDoing))
+                                    <p class="stat-number">{{$cleanDoing}}  Cleaning being done</p>
+                                @endif
+                                @if(!is_null($cleanDone))
+                                    <p class="stat-number">{{$cleanDone}} Cleaning done</p>
+                                @endif
+                                @if(!is_null($cleanToDo))
+                                    <p class="stat-number">{{$cleanToDo}} Cleaning to be done</p>
+                                @endif
                             </div>
                         @endif
 {{--                        <div class="stat-card">--}}

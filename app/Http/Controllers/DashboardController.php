@@ -5,6 +5,7 @@ use App\Models\CleaningRequest;
 use App\Models\User;
 use App\Models\Lodging;
 use App\Models\Company;
+use App\Models\Cleaning;
 
 class DashboardController extends Controller
 {
@@ -16,10 +17,15 @@ class DashboardController extends Controller
         $user = auth()->user();
         $roles = config('constants.roles');
         $permissions = config('constants.permissions');
+        $cleanStates = config('constants.cleanStates');
         $permissions[$user->user_type] = true;
         $cleaningRequests = null;
         $users = null;
         $accommodations = null;
+        $cleanCanceled = null;
+        $cleanDoing = null;
+        $cleanDone = null;
+        $cleanToDo = null;
         if($permissions[$roles[0]])
         {
             $users = User::query()->count();
@@ -29,6 +35,10 @@ class DashboardController extends Controller
         {
             $company = Company::where("user_id", $user->id_user)->get()[0];
             $cleaningRequests = CleaningRequest::where("company_id", $company->id_company)->count();
+            $cleanCanceled = Cleaning::where('estado', $cleanStates[0])->count();
+            $cleanDoing = Cleaning::where('estado', $cleanStates[1])->count();
+            $cleanDone = Cleaning::where('estado', $cleanStates[2])->count();
+            $cleanToDo = Cleaning::where('estado', $cleanStates[3])->count();
         }
 //        $counts = User::query()->select('user_type', DB::raw('COUNT(*) as total'))
 //            ->groupBy('user_type')
@@ -38,7 +48,11 @@ class DashboardController extends Controller
             [
                 "users" => $users,
                 "accommodations" => $accommodations,
-                "cleaningRequests" => $cleaningRequests
+                "cleaningRequests" => $cleaningRequests,
+                "cleanDone" => $cleanDone,
+                "cleanCanceled" => $cleanCanceled,
+                "cleanDoing" => $cleanDoing,
+                "cleanToDo" => $cleanToDo
             ]
         );
     }

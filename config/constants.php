@@ -14,5 +14,11 @@ return [
         "client" => false,
         "supervisor" => false,
         "employee" => false
+    ],
+    'cleanStates' => [
+        "Canceled",
+        "Doing",
+        "Done",
+        "To do"
     ]
 ];
