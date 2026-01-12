@@ -13,22 +13,28 @@
                 <div class="dashboard">
                     <h1>Dashboard</h1>
                     <div class="stats-grid">
-                        <div class="stat-card">
-                            <h3>👥 Users</h3>
-                            <p class="stat-number">{{$users}}</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3>🏠 Accommodations</h3>
-                            <p class="stat-number">{{$accommodations}}</p>
-                        </div>
+                        @if(!is_null($users))
+                            <div class="stat-card">
+                                <h3>👥 Users</h3>
+    {{--                            <p class="stat-number">{{$users}}</p>--}}
+                            </div>
+                        @endif
+                        @if(!is_null($accommodations))
+                            <div class="stat-card">
+                                <h3>🏠 Accommodations</h3>
+                                <p class="stat-number">{{$accommodations}}</p>
+                            </div>
+                        @endif
 {{--                        <div class="stat-card">--}}
 {{--                            <h3>📅 Schedules</h3>--}}
 {{--                            <p class="stat-number">12 Today</p>--}}
 {{--                        </div>--}}
-                        <div class="stat-card">
-                            <h3>🧹 Requests</h3>
-                            <p class="stat-number">{{$cleaningRequests}} Pending</p>
-                        </div>
+                        @if(!is_null($cleaningRequests))
+                            <div class="stat-card">
+                                <h3>🧹 Requests</h3>
+                                <p class="stat-number">{{$cleaningRequests}} Pending</p>
+                            </div>
+                        @endif
                     </div>
 
                     <div class="dashboard-grid">
