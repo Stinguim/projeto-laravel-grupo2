@@ -36,6 +36,7 @@ class UserController extends Controller
             "name" => "required|string|max:255",
             "surname" => "required|string|max:255",
             "email" => "required|email",
+            "user_type" => "required|in:admin,supervisor,employ,client",
         ]);
 
         User::where("id_user", $id)->update($data);
