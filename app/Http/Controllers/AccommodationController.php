@@ -15,13 +15,21 @@ class AccommodationController extends Controller
     public function index()
     {
         $user = auth()->user();
-        if($user->user_type == 'admin') {
+        $roles = config('constants.roles');
+        $permissions = config('constants.permissions');
+        $permissions[$user->user_type] = true;
+        $lodging = null;
+        if($permissions[$roles[0]]) {
             $lodging = Lodging::all();
         } else {
             $lodging = Lodging::where('user_id', $user->id_user)->get();
         }
 
-        return view("accommodations.index", ['lodging' => $lodging]);
+        return view("accommodations.index",
+            [
+                'lodging' => $lodging
+            ]
+        );
     }
 
     public function create()

@@ -31,7 +31,7 @@ class DashboardController extends Controller
             $users = User::query()->count();
             $accommodations = Lodging::query()->count();
         }
-        if($permissions[$roles[3]])
+        if($permissions[$roles[2]])
         {
             $company = Company::where("user_id", $user->id_user)->get()[0];
             $cleaningRequests = CleaningRequest::where("company_id", $company->id_company)->count();
