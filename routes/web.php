@@ -41,4 +41,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/settings", [UserController::class, "settings"] )->name('settings.index')->defaults('title', 'Settings');
     Route::delete("/settings/{id}",[UserController::class, "destroy"] )->name("settings.destroy");
+
+    Route::get("/cleaning-requests", [\App\Http\Controllers\CleaningRequestsController::class, "index"]);
 });
