@@ -20,13 +20,16 @@
                         <a href="/register">Register</a>
                     @endguest
                     <a href="/dashboard">DashBoard</a>
-                @if(Auth::user()->user_type == 'admin')
-                    <a href="/users">Users</a>
-                @endif
-                    <a href="/accommodations">Accommodations</a>
-                @if(Auth::user()->user_type != 'client')
-                    <a href="/schedule">Schedule</a>
-                @endif
+                    @if(Auth::user()->user_type == config("constants.roles")[0])
+                        <a href="/users">Users</a>
+                    @endif
+                        <a href="/accommodations">Accommodations</a>
+                    @if(Auth::user()->user_type != config("constants.roles")[1])
+                        <a href="/schedule">Schedule</a>
+                    @endif
+                    @if(Auth::user()->user_type == config("constants.roles")[2])
+                        <a href="/cleaning-requests">Cleaning Requests</a>
+                    @endif
                 </nav>
             </div>
             <div class="m-right-side">
