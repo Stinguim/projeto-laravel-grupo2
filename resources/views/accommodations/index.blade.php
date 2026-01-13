@@ -1,5 +1,5 @@
 @extends("layouts.main")
-@section('title', 'Alojamentos')
+@section('title', 'Accommodations')
 
 <link rel="stylesheet" href="/styles/accommodation.css">
 
@@ -16,10 +16,10 @@
         </div>
         <div>
             <div class="acc-container">
-                <p class="bold">Nome</p>
-                <p class="bold">Endereço</p>
-                <p class="bold">Descrição</p>
-                <p class="bold">Validado</p>
+                <p class="bold">Name</p>
+                <p class="bold">Address</p>
+                <p class="bold">Description</p>
+                <p class="bold">Validated</p>
             </div>
             @foreach($lodging as $lodge)
                 <div class="acc-container">
@@ -54,7 +54,6 @@
                         </button>
                     @endif
                 </div>
-
             @endforeach
         </div>
     </div>
