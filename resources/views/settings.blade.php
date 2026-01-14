@@ -16,7 +16,6 @@
 
                 <div class="card">
                     <h2>👤 Profile Information</h2>
-{{--                    transform this as a form to edit the profile--}}
                     <div class="form-group">
                         <label>First Name</label>
                         <input type="text" value="marcio">

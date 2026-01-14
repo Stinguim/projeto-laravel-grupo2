@@ -40,9 +40,9 @@ class DashboardController extends Controller
             $cleanDone = Cleaning::where('estado', $cleanStates[2])->count();
             $cleanToDo = Cleaning::where('estado', $cleanStates[3])->count();
         }
-//        $counts = User::query()->select('user_type', DB::raw('COUNT(*) as total'))
-//            ->groupBy('user_type')
-//            ->get();
+        $counts = User::query()->select('user_type', User::raw('COUNT(*) as total'))
+            ->groupBy('user_type')
+            ->get();
 
         return view("dashboard",
             [

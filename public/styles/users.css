@@ -59,7 +59,7 @@
 .role.client { background: #e0e0e0; }
 .role.admin { background: #4da3ff; color: #fff; }
 .role.supervisor { background: #6fcf97; color: #fff; }
-.role.employ { background-color: #f2c94c; color: #333; }
+.role.employee { background-color: #f2c94c; color: #333; }
 
 .actions button {
     margin: 5px;

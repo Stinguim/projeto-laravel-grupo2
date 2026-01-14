@@ -9,22 +9,36 @@
 .cleanings-container{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-table{
-    border-spacing: 0;
-    border: 1px solid;
+.cleaning-card {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 300px;
 }
 
-td{
-    text-align: center;
+.cleaning-card h3 {
+    margin-top: 0;
 }
 
-th{
-    border-top: 0;
+.btn-complete {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.a-r-container{
-    display: flex;
+.btn-complete:hover {
+    background-color: #218838;
+}
 
+.completed-label {
+    color: #6c757d;
+    font-weight: bold;
 }

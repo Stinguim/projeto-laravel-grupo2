@@ -8,9 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/', function () {
-//    return view('auth.authenticate');
-//});
+Route::get('/', function () {
+    return view('auth.authenticate');
+});
 
 Route::middleware('guest')->controller(RegisterController::class)->group(function () {
     Route::get("/login", "showLogin");
@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanup']);
 
     Route::get("/schedule", [CleaningController::class, 'showSchedule'])->defaults('title', 'Schedule');
-    Route::get("/schedule/{id}", [CleaningController::class, 'showScheduleLodging'])->name('schedule.id')->defaults('title', 'Schedule');
+    Route::patch("/schedule/{id}", [CleaningController::class, 'updateCleaningRequest'])->defaults('title', 'Schedule');
 
     Route::get("/settings", [UserController::class, "settings"] )->name('settings.index')->defaults('title', 'Settings');
     Route::delete("/settings/{id}",[UserController::class, "destroy"] )->name("settings.destroy");

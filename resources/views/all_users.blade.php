@@ -34,13 +34,6 @@
                         <p>Nenhum utilizador encontrado.</p>
                     @endforelse
                 </div>
-{{--                <ul>--}}
-{{--                    @forelse ($users as $user)--}}
-{{--                        <li>Nome: {{ $user->name }} | Email: {{ $user->email }}<a href="users/{{$user->id_user}}/edit"> Editar</a></li>--}}
-{{--                    @empty--}}
-{{--                        <li>Nenhum utilizador encontrado.</li>--}}
-{{--                    @endforelse--}}
-{{--                </ul>--}}
             </div>
         @endsection
     </body>

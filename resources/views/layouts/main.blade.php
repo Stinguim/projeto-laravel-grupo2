@@ -11,7 +11,7 @@
         <div class="sub-nav-container">
             <div class="m-left-side">
                 <img src="/images/logo_app.png">
-                <h3>Sparkle Home</h3>
+                <h3>Cleanio</h3>
             </div>
             <div class="m-center-side">
                 <nav class="sn-container m-center-side">
@@ -19,7 +19,9 @@
                         <a href="/login">Login</a>
                         <a href="/register">Register</a>
                     @endguest
-                    <a href="/dashboard">DashBoard</a>
+                    @if(Auth::user()->user_type != config("constants.roles")[1])
+                            <a href="/dashboard">DashBoard</a>
+                    @endif
                     @if(Auth::user()->user_type == config("constants.roles")[0])
                         <a href="/users">Users</a>
                     @endif
@@ -48,22 +50,5 @@
 
     </div>
     @yield('content')
-{{--    <div class="main-nb">--}}
-{{--        <div class="header-container">--}}
-{{--            <div class="left-side">--}}
-{{--                <h2 id="title_h2">@yield('title')</h2>--}}
-{{--            </div>--}}
-{{--            <div class="right-side">--}}
-{{--                <img src="/images/user.png" alt="UserPfp">--}}
-{{--                @auth--}}
-{{--                    <span>{{Auth::user()->name}}</span>--}}
-{{--                @endauth--}}
-{{--                @guest--}}
-{{--                    <span>Username</span>--}}
-{{--                @endguest--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-{{--    </div>--}}
 </body>
 </html>
