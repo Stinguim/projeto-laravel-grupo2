@@ -11,7 +11,7 @@ body{
     height: 100vh;
     width: 100%;
 
-    background-color: #0dcaf0;
+    background: linear-gradient(135deg, #0d7ff0, #17d1ea);
 }
 
 .form-container{
@@ -97,6 +97,22 @@ body{
     height: 25px;
 }
 
+.small-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
 
+.small-text.destaque{
+    color: #0077ff;
+    text-decoration: none;
+}
 
+.small-text.grey{
+    color: #808080;
+    align-items: flex-start;
+    margin: 0;
+}
 

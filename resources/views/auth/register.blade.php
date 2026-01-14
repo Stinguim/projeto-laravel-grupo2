@@ -10,6 +10,7 @@
         <div class="bg-container">
             <div class="form-container">
                 <h2>Register</h2>
+                <p class="small-text grey"> Começa a fazer as limpezas não serem tarefas!</p>
                 <form action="/register" method="POST" id="register">
                     @csrf
                     <div class="username-inputs">
@@ -29,12 +30,12 @@
                         </div>
                         <div class="ep-input user-input">
                             <label for="first">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="YourPassword" required>
+                            <input type="password" id="password" name="password" placeholder="min 6 characters" required>
                         </div>
                     </div>
                     <div class="username-inputs">
                         <div class="user-input">
-                            <label for="first">User Type</label>
+                            <label for="first">Account Type:</label>
                             <select class="sel-container" id="user_type" name="user_type" form="register">
                                 <option value="client">client</option>
                                 <option value="employ">employ</option>
@@ -44,6 +45,9 @@
                         </div>
                     </div>
                     <button type="submit">Create Account</button>
+                    <div class="small-text">
+                        <p>Already have an account?</p><a class="small-text destaque" href="/login"> Sign in!</a>
+                    </div>
                     @if($errors->any())
                         @foreach($errors->all() as $error)
                             <p>{{$error}}</p>
