@@ -9,7 +9,9 @@
 <body>
     <div class="bg-container">
         <div class="form-container">
-            <h2>Login</h2>
+            <img class="image" src="/images/logo_app.png">
+            <h2 class="login">Login</h2>
+            <p class="small-text grey">Please enter your details</p>
             <form action="/login" method="POST">
                 @csrf
                 <div class="user-input">
@@ -20,13 +22,25 @@
                     <label for="first">Password:</label>
                     <input type="password" id="first" name="password" placeholder="YourPassword" required>
                 </div>
-                    <button type="submit">Entrar</button>
-                <div class="user-input">
-                    <p style="margin: 0">Dont have an account?</p>
-                    <div class="reg_container">
-                        <a class="reg_btn" href="/register">Register</a>
+                <button class="button-special">
+                    <div>
+                        <span>
+                          <p>Sign In</p>
+                        </span>
                     </div>
+                    <div>
+                        <span>
+                          <p>Let's Clean!</p>
+                        </span>
+                    </div>
+                </button>
+                <div class="small-text">
+                    <p>Forgot your Password?</p><a class="small-text destaque" href="/login"> Reset Password</a>
                 </div>
+                <div class="small-text">
+                    <p>Don't have an account?</p><a class="small-text destaque" href="/register"> Sign up!</a>
+                </div>
+                <p class="small-text grey smaller">Click 'Sign in' to agree to the Cleanio Terms of Service and acknowledge that the Cleanio Privacy Policy applies to you.</p>
                 @if($errors->any())
                     @foreach($errors->all() as $error)
                         <p>{{$error}}</p>

@@ -23,11 +23,12 @@ class CleaningRequestsController extends Controller
 
         if($permissions[$roles[2]]) {
             $company = Company::where("user_id", $user->id_user)->get()[0];
-            $requests = CleaningRequest::where("company_id", $company->id_company)->where("state", 0)->get();
+            $requests = CleaningRequest::where("company_id", $company->id_company)->where("state", 1)->get();
             $cleaningRequests = [];
             foreach ($requests as $request) {
                 $accommodation = Lodging::where("id_lodging", $request->lodging_id)->get()[0];
                 $cleaningRequests[] = [
+                    "id" => $request->id_cleaning_request,
                     "client" => User::where("id_user", $request->user_id)->get()[0]->name,
                     "accommodation" => $accommodation->name,
                     "address" => $accommodation->address,
@@ -43,7 +44,43 @@ class CleaningRequestsController extends Controller
             ]
         );
     }
+    public function accept($id)
+    {
+        $user = auth()->user();
 
+        // buscar pedido
+        $request = CleaningRequest::where("id_cleaning_request", $id)->firstOrFail();
+
+        // só aceita se o pedido tiver o estado "pendente"
+        if ($request->state !== 1) {
+            abort(403);
+        }
+
+        // atualizar estado para "aceite"
+        $request->state = 2;
+        $request->save();
+
+        return redirect()->back()->with("success", "Cleaning request accepted");
+    }
+
+    public function reject($id)
+    {
+        $user = auth()->user();
+
+        // buscar pedido
+        $request = CleaningRequest::where("id_cleaning_request", $id)->firstOrFail();
+
+        // só recusa se o pedido tiver o estado "pendente"
+        if ($request->state !== 1) {
+            abort(403);
+        }
+
+        // atualizar estado para "recusado"
+        $request->state = 0;
+        $request->save();
+
+        return redirect()->back()->with("success", "Cleaning request rejected");
+    }
     /**
      * Store a newly created resource in storage.
      */

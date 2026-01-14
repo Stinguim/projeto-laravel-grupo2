@@ -25,7 +25,7 @@ class CleaningRequestFactory extends Factory
             'lodging_id' => Lodging::all()->random()->id_lodging,
             'user_id' => User::where('user_type', 'client')->inRandomOrder()->first()->id_user,
             'company_id' => Company::all()->random()->id_company,
-            'state' => 0
+            'state' => 1
         ];
     }
 }

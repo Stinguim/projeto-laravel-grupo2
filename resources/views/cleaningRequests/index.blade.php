@@ -13,6 +13,7 @@
                     <p class="bold">Address</p>
                     <p class="bold">Description</p>
                     <p class="bold">Date</p>
+                    <p class="bold">Action</p>
                 </div>
                 <div class="a-container">
                     @foreach($cleaningRequests as $request)
@@ -22,6 +23,17 @@
                             <p>{{$request['address']}}</p>
                             <p>{{$request['description']}}</p>
                             <p>{{$request['date']}}</p>
+                            <div class="actions">
+                                <form method="POST" action="{{ route('cleaningRequests.accept', $request['id']) }}">
+                                    @csrf
+                                    <button class="btn-accept">Accept</button>
+                                </form>
+
+                                <form method="POST" action="{{ route('cleaningRequests.reject', $request['id']) }}">
+                                    @csrf
+                                    <button class="btn-reject">Reject</button>
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>

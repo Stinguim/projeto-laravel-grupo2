@@ -34,7 +34,7 @@ class DashboardController extends Controller
         if($permissions[$roles[2]])
         {
             $company = Company::where("user_id", $user->id_user)->get()[0];
-            $cleaningRequests = CleaningRequest::where("company_id", $company->id_company)->count();
+            $cleaningRequests = CleaningRequest::where("company_id", $company->id_company)->where("state", 1)->count();
             $cleanCanceled = Cleaning::where('estado', $cleanStates[0])->count();
             $cleanDoing = Cleaning::where('estado', $cleanStates[1])->count();
             $cleanDone = Cleaning::where('estado', $cleanStates[2])->count();
