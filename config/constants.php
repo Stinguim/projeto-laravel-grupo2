@@ -18,5 +18,10 @@ return [
         "Doing",
         "Done",
         "To do"
+    ],
+    'cleaningRequestsStates' => [
+        "Pending",
+        "Denied",
+        "Approved",
     ]
 ];
