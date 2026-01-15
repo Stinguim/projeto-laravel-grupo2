@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cleaning_request', function (Blueprint $table) {
-            $table->boolean('state')->default(false);
+            $table->enum("state", ["Pending", "Denied", "Approved"])->default("Pending");
         });
     }
 
