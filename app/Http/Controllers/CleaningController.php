@@ -4,12 +4,47 @@ namespace App\Http\Controllers;
 
 use App\Models\Cleaning;
 use App\Models\CleaningRequest;
+use App\Models\CleaningTeam;
+use App\Models\Company;
 use App\Models\Lodging;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CleaningController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        $user = auth()->user();
+        $roles = config('constants.roles');
+        $permissions = config('constants.permissions');
+        $permissions[$user->user_type] = true;
+        $company = $company = Company::where("user_id", $user->id_user)->firstOrFail();
+        $cleanings = [];
+        if ($company != null) {
+            $requests = CleaningRequest::all()->where("company_id", $company->id_company)
+                ->where('state', config('constants.cleaningRequestsStates')[2]);
+            foreach ($requests as $request) {
+                $accommodation = Lodging::all()->firstWhere("id_lodging", $request->lodging_id);
+                $cleanings[] = [
+                    "id" => $request->id_cleaning_request,
+                    "name" => $accommodation->name,
+                    "address" => $accommodation->address,
+                    "date" => $request->data_request,
+                    "timeleft" => today()->diffInHours($request->data_request),
+                ];
+            }
+
+            array_multisort(array_column($cleanings, 'timeleft'), SORT_ASC, $cleanings);
+        }
+
+        return view('cleaning.index',
+            [
+                "cleanings" => $cleanings,
+            ]
+        );
+    }
+
     public function showSchedule(){
         $user = Auth::user();
         $cleanings = Cleaning::query()
