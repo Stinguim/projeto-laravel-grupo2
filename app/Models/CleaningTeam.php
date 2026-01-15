@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CleaningTeam extends Model
 {
-    protected $table = 'cleaning_teams';
+    use HasFactory;
+
+    protected $table = 'cleaning_team';
     protected $primaryKey = 'id_cleaning_team';
     public $timestamps = false;
     protected $fillable = [

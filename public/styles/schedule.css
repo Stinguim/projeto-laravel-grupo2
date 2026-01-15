@@ -38,6 +38,19 @@
     background-color: #218838;
 }
 
+.btn-delete {
+    background-color: #a72828;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background-color: #882121;
+}
+
 .completed-label {
     color: #6c757d;
     font-weight: bold;

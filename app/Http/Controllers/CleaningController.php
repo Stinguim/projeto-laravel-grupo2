@@ -48,15 +48,41 @@ class CleaningController extends Controller
             return view("schedule", ['cleanings' => $cleanings]);
     }
 
-    public function updateCleaningRequest($request_id){
+    public function updateCleaningRequest(Request $request, $request_id){
 
-        $request = Cleaning::where("cleaning_request_id", $request_id)->firstOrFail();
+        $cleaning = Cleaning::where("cleaning_request_id", $request_id)->firstOrFail();
 
-        $request->estado = 3;
-        $request->save();
+        // Não editar se já estiver concluída
+        if ($cleaning->estado == config('constants.cleanStates')[2]) {
+            abort(403);
+        }
 
-        return redirect()->back()->with("success", "Lodging Cleaned");
+        Cleaning::where("cleaning_request_id", $request_id)->update(['estado' => $request->estado]);
+
+        return redirect()->back()->with("success", "Cleaning updated successfully");
     }
+
+    public function destroy($request_id)
+    {
+        $user = Auth::user();
+
+        // Apenas supervisor pode apagar
+        if ($user->user_type !== 'supervisor') {
+            abort(403);
+        }
+
+        $cleaning = Cleaning::where("cleaning_request_id", $request_id)->firstOrFail();
+
+        // Não permitir apagar se já estiver concluída
+        if ($cleaning->estado === 'Done') {
+            abort(403);
+        }
+
+        Cleaning::where("cleaning_request_id", $request_id)->delete();
+
+        return redirect()->back()->with("success", "Cleaning deleted");
+    }
+
 
 }
 ?>

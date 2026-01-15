@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/dashboard", [DashboardController::class, 'index'])->defaults('title', 'Dashboard');
 
+    // Rotas dos Alojamentos
     Route::get("/accommodations", [AccommodationController::class, 'index']);
     Route::get("/accommodations/create", [AccommodationController::class, 'create']);
     Route::post("/accommodations/create", [AccommodationController::class, 'store']);
@@ -36,15 +37,17 @@ Route::middleware('auth')->group(function () {
     Route::get("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanupForm']);
     Route::post("/accommodations/{id}/schedule-cleaning", [AccommodationController::class, 'scheduleCleanup']);
 
+    // Rotas das Limpezas
     Route::get("/schedule", [CleaningController::class, 'showSchedule'])->defaults('title', 'Schedule');
     Route::patch("/schedule/{id}", [CleaningController::class, 'updateCleaningRequest'])->defaults('title', 'Schedule');
+    Route::delete("/schedule/{id}", [CleaningController::class, 'destroy'])->name("schedule.destroy");
 
+    // Rotas das Definições
     Route::get("/settings", [UserController::class, "settings"] )->name('settings.index')->defaults('title', 'Settings');
     Route::delete("/settings/{id}",[UserController::class, "destroy"] )->name("settings.destroy");
 
+    // Rota dos Pedidos de Limpeza
     Route::get("/cleaning-requests", [\App\Http\Controllers\CleaningRequestsController::class, "index"]);
-
-    // Mudar o estado da limpeza de acordo com o supervisor escolheu
     Route::post("/cleaning-requests/{id}/accept", [\App\Http\Controllers\CleaningRequestsController::class, "accept"])->name("cleaningRequests.accept");
     Route::post("/cleaning-requests/{id}/reject", [\App\Http\Controllers\CleaningRequestsController::class, "reject"])->name("cleaningRequests.reject");
 });

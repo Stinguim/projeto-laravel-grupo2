@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Lodging;
 use App\Models\Company;
 use App\Models\Cleaning;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -40,6 +41,20 @@ class DashboardController extends Controller
             $cleanDone = Cleaning::where('estado', $cleanStates[2])->count();
             $cleanToDo = Cleaning::where('estado', $cleanStates[3])->count();
         }
+        if ($permissions[$roles[3]]) {
+
+            $cleaningRequests = Cleaning::query()
+                ->join(
+                    'cleaning_team_has_user',
+                    'cleaning.cleaning_team_id',
+                    '=',
+                    'cleaning_team_has_user.cleaning_team_id'
+                )
+                ->where('cleaning_team_has_user.user_id', $user->id_user)
+                ->where('cleaning.estado', 'To do')
+                ->count();
+        }
+
         $counts = User::query()->select('user_type', User::raw('COUNT(*) as total'))
             ->groupBy('user_type')
             ->get();
