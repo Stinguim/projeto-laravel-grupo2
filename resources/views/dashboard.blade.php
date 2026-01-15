@@ -40,14 +40,17 @@
                                 @endif
                             </div>
                         @endif
-{{--                        Employee--}}
-                        @if(Auth::user()->user_type == config("constants.roles")[3])
+                        @if(Auth::user()->user_type == config("constants.roles")[2])
                                 <div class="stat-card">
                                     <h3>🧹 Limpezas</h3>
                                     @if(!is_null($cleaningRequests))
-                                        <p class="stat-number">{{$cleaningRequests}} Pending</p>
+                                        <p class="stat-number">{{$cleaningRequests['pending']}} Pending</p>
+                                        <p class="stat-number">{{$cleaningRequests['approved']}} Approved</p>
+                                        <p class="stat-number">{{$cleaningRequests['denied']}} Denied</p>
                                     @else
-                                        <p class="stat-number">12314 Pending</p>
+                                        <p class="stat-number">0 Pending</p>
+                                        <p class="stat-number">0 Approved</p>
+                                        <p class="stat-number">0 Denied</p>
                                     @endif
                                 </div>
                         @endif
