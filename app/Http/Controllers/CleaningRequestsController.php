@@ -20,10 +20,12 @@ class CleaningRequestsController extends Controller
         $permissions = config('constants.permissions');
         $permissions[$user->user_type] = true;
         $cleaningRequests = null;
-
         if($permissions[$roles[2]]) {
             $company = Company::where("user_id", $user->id_user)->get()[0];
-            $requests = CleaningRequest::where("company_id", $company->id_company)->where("state", 1)->get();
+            $requests = CleaningRequest::where("company_id", $company->id_company)->get();
+            $requests = $requests->sortByDesc(function ($request) {
+                return $request->state;
+            })->values();
             $cleaningRequests = [];
             foreach ($requests as $request) {
                 $accommodation = Lodging::where("id_lodging", $request->lodging_id)->get()[0];
@@ -34,6 +36,7 @@ class CleaningRequestsController extends Controller
                     "address" => $accommodation->address,
                     "description" => $request->descricao,
                     "date" => $request->data_request,
+                    "state" => $request->state,
                 ];
             }
         }
