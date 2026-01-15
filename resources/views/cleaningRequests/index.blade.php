@@ -24,15 +24,19 @@
                             <p>{{$request['description']}}</p>
                             <p>{{$request['date']}}</p>
                             <div class="actions">
-                                <form method="POST" action="{{ route('cleaningRequests.accept', $request['id']) }}">
-                                    @csrf
-                                    <button class="btn-accept">Accept</button>
-                                </form>
+                                @if($request['state'] == config('constants.cleaningRequestsStates')[0])
+                                    <form method="POST" action="{{ route('cleaningRequests.accept', $request['id']) }}">
+                                        @csrf
+                                        <button class="default-button --button-green">Accept</button>
+                                    </form>
 
-                                <form method="POST" action="{{ route('cleaningRequests.reject', $request['id']) }}">
-                                    @csrf
-                                    <button class="btn-reject">Reject</button>
-                                </form>
+                                    <form method="POST" action="{{ route('cleaningRequests.reject', $request['id']) }}">
+                                        @csrf
+                                        <button class="default-button --button-red">Reject</button>
+                                    </form>
+                                @else
+                                    <p>{{$request['state']}}</p>
+                                @endif
                             </div>
                         </div>
                     @endforeach

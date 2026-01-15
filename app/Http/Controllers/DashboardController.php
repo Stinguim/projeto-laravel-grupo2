@@ -19,6 +19,7 @@ class DashboardController extends Controller
         $roles = config('constants.roles');
         $permissions = config('constants.permissions');
         $cleanStates = config('constants.cleanStates');
+        $requestsStates = config('constants.cleaningRequestsStates');
         $permissions[$user->user_type] = true;
         $cleaningRequests = null;
         $users = null;
@@ -37,11 +38,11 @@ class DashboardController extends Controller
             $company = Company::where("user_id", $user->id_user)->get()[0];
             $cleaningRequests = [
                 "pending" => CleaningRequest::where("company_id", $company->id_company)
-                    ->where("state", "Pending")->count(),
+                    ->where("state", $requestsStates[0])->count(),
                 "approved" => CleaningRequest::where("company_id", $company->id_company)
-                    ->where("state", "Approved")->count(),
+                    ->where("state", $requestsStates[2])->count(),
                 "denied" => CleaningRequest::where("company_id", $company->id_company)
-                    ->where("state", "Denied")->count()
+                    ->where("state", $requestsStates[1])->count()
             ];
             $cleanCanceled = Cleaning::where('estado', $cleanStates[0])->count();
             $cleanDoing = Cleaning::where('estado', $cleanStates[1])->count();
