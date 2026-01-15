@@ -50,4 +50,6 @@ Route::middleware('auth')->group(function () {
     Route::get("/cleaning-requests", [\App\Http\Controllers\CleaningRequestsController::class, "index"]);
     Route::post("/cleaning-requests/{id}/accept", [\App\Http\Controllers\CleaningRequestsController::class, "accept"])->name("cleaningRequests.accept");
     Route::post("/cleaning-requests/{id}/reject", [\App\Http\Controllers\CleaningRequestsController::class, "reject"])->name("cleaningRequests.reject");
+
+    Route::get("/cleaning", [CleaningController::class, "index"])->name("cleaning.index");
 });
