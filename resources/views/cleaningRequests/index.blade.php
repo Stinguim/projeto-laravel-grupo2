@@ -35,7 +35,11 @@
                                         <button class="default-button --button-red">Reject</button>
                                     </form>
                                 @else
-                                    <p class="state">{{ $request['state'] }}</p>
+                                    <p class="state">
+                                        {{ $request['state'] }}
+                                        {{ $request['state'] == config('constants.cleaningRequestsStates')[2] ?
+                                            '✔' : '✘'}}
+                                    </p>
                                 @endif
                             </div>
                         </div>
