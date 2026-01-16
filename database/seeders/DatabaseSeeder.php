@@ -79,6 +79,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $employee->id_user
         ]);
 
+        // Criar 2 requests que tenham sido aprovados para testar o cleaning
         $companyRequests = CleaningRequest::factory(2)->create([
             'company_id' => $company->id_company,
             'lodging_id' => $lodgings->first()->id_lodging,

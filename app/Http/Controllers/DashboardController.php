@@ -12,9 +12,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-//        users, requests, accommodations
-
-
         $user = auth()->user();
         $roles = config('constants.roles');
         $permissions = config('constants.permissions');
@@ -28,6 +25,8 @@ class DashboardController extends Controller
         $cleanDoing = null;
         $cleanDone = null;
         $cleanToDo = null;
+
+        // Define-se o que cada user pode ver através das permissões dos roles
         if($permissions[$roles[0]])
         {
             $users = User::query()->count();

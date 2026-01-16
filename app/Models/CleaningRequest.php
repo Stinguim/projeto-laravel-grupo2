@@ -9,6 +9,10 @@ class CleaningRequest extends Model
 {
     use HasFactory;
 
+    public const STATE_REJECTED = 0;
+    public const STATE_PENDING  = 1;
+    public const STATE_APPROVED = 2;
+
     protected $table = 'cleaning_request';
     protected $primaryKey = 'id_cleaning_request';
 

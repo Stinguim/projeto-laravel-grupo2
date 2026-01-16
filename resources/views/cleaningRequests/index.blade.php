@@ -35,7 +35,7 @@
                                         <button class="default-button --button-red">Reject</button>
                                     </form>
                                 @else
-                                    <p>{{$request['state']}}</p>
+                                    <p class="state">{{ $request['state'] }} {{$request['state'] === \App\Models\CleaningRequest::STATE_APPROVED ? '✔' : '✘' }}</p>
                                 @endif
                             </div>
                         </div>
