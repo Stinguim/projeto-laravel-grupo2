@@ -22,3 +22,82 @@
 .state{
     font-weight: bold;
 }
+
+.a-container {
+    height: 85%;
+    margin: 20px;
+    padding: 20px;
+
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+/* Lodging info */
+.lodge-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.lodge-info .label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.lodge-info p {
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Status */
+.ok {
+    color: #1e8e3e;
+    font-weight: bold;
+}
+
+.no {
+    color: #c62828;
+    font-weight: bold;
+}
+
+/* Section title */
+.section-title {
+    margin-bottom: 15px;
+}
+
+/* Cleaning table */
+.cleaning-table {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cleaning-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.cleaning-row.header {
+    background-color: #f3f3f3;
+    font-weight: bold;
+}
+
+.cleaning-row:last-child {
+    border-bottom: none;
+}
+
+.cleaning-row.empty {
+    justify-content: center;
+    text-align: center;
+    color: #777;
+}
+
+.cleaning-row:hover:not(.header):not(.empty) {
+    background-color: #f9f9f9;
+}

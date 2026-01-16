@@ -13,8 +13,17 @@ class CleaningTeam extends Model
     protected $primaryKey = 'id_cleaning_team';
     public $timestamps = false;
     protected $fillable = [
-
+        'company_id'
     ];
+
+    public function cleanings()
+    {
+        return $this->hasMany(
+            Cleaning::class,
+            'cleaning_team_id',
+            'id_cleaning_team'
+        );
+    }
 
     public function cleaningRequest(){
         return $this->hasMany(Cleaning::class, 'cleaning_team_id');

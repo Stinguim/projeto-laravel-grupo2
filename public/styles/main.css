@@ -354,6 +354,9 @@ h3{
 }
 
 .clickable-element:hover {
-    background-color: #a0aec0;
+    background-color: teal;
+    padding: 0 5px;
+    border-radius: 10px;
+    color: white;
     cursor: pointer;
 }

@@ -5,22 +5,50 @@
 
 @section('content')
     <div class="a-container">
-        <p>Endereço: {{ $lodge->address }}</p>
-        <p>Descrição: {{ $lodge->description }}</p>
-        <p>Validado: {{ $lodge->validated ? 'Sim' : 'Não' }}</p>
-        <h2>Limpezas</h2>
-        <div class="acc-container">
-            <p class="bold">Descrição</p>
-            <p class="bold">Data</p>
-            <p class="bold">Companhia</p>
-        </div>
-        @foreach($cleaning as $clean)
-            <div class="acc-container">
-                <p>{{ $clean->descricao }}</p>
-                <p>{{ $clean->data_request }}</p>
-                <p>{{ $clean->company }}</p>
+
+        {{-- Lodging info card --}}
+        <div class="lodge-info">
+            <div>
+                <span class="label">Endereço</span>
+                <p>{{ $lodge->address }}</p>
             </div>
-        @endforeach
+
+            <div>
+                <span class="label">Descrição</span>
+                <p>{{ $lodge->description }}</p>
+            </div>
+
+            <div>
+                <span class="label">Validado</span>
+                <p class="{{ $lodge->validated ? 'ok' : 'no' }}">
+                    {{ $lodge->validated ? 'Sim' : 'Não' }}
+                </p>
+            </div>
+        </div>
+
+        {{-- Cleanings --}}
+        <h2 class="section-title">Limpezas</h2>
+
+        <div class="cleaning-table">
+            <div class="cleaning-row header">
+                <span>Descrição</span>
+                <span>Data</span>
+                <span>Companhia</span>
+            </div>
+
+            @forelse($cleaning as $clean)
+                <div class="cleaning-row">
+                    <span>{{ $clean->descricao }}</span>
+                    <span>{{ $clean->data_request }}</span>
+                    <span>{{ $clean->company }}</span>
+                </div>
+            @empty
+                <div class="cleaning-row empty">
+                    <span>Sem limpezas registadas</span>
+                </div>
+            @endforelse
+        </div>
+
     </div>
 @endsection
 

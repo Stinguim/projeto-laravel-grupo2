@@ -15,7 +15,7 @@
                     <p class="bold">Date</p>
                     <p class="bold">Action</p>
                 </div>
-                <div class="a-container">
+                <div class="">
                     @foreach($cleaningRequests as $request)
                         <div class="acc-container">
                             <p>{{$request['client']}}</p>
