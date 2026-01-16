@@ -38,7 +38,7 @@
                             <label for="first">Account Type:</label>
                             <select class="sel-container" id="user_type" name="user_type" form="register">
                                 <option value="client">client</option>
-                                <option value="employ">employ</option>
+                                <option value="employee">employee</option>
                                 <option value="supervisor">supervisor</option>
 {{--                                <option value="admin">admin</option>--}}
                             </select>

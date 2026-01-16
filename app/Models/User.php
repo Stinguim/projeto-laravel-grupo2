@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
     public function isEmployee(){
-        return $this->user_type === 'employ';
+        return $this->user_type === 'employee';
     }
 
     public function isClient(){
