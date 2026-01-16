@@ -34,13 +34,14 @@ class AccommodationController extends Controller
 
     public function create()
     {
+
         return view("accommodations.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function  store(Request $request)
     {
         $user = auth()->user();
         $lodging = new Lodging();

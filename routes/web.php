@@ -53,5 +53,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/cleaning", [CleaningController::class, "index"])->name("cleaning.index");
     Route::get("/cleaning/{id}", [CleaningController::class, "showCleaning"])->name("cleaning.show");
-    Route::patch("/cleaning/{id}", [CleaningController::class, "updateCleaning"])->name("cleaning.update");
+    Route::post("/cleaning/{id}", [CleaningController::class, "storeCleaning"])->name("cleaning.store");
+    Route::delete("/cleaning/{id}", [CleaningController::class, 'destroyCleaningRequest'])->name('cleaning.delete');
 });

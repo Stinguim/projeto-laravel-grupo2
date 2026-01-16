@@ -40,6 +40,7 @@
                                 <form action="{{ route('schedule.destroy', $cleaning->request_id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
+                                    <input type="hidden" name="date" value="{{ $cleaning->date }}">
                                     <button type="submit" class="btn-delete">Delete</button>
                                 </form>
                             @else
