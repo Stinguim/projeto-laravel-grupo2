@@ -45,6 +45,16 @@ class CleaningController extends Controller
         );
     }
 
+    public function showCleaning($id){
+        $cleaningRequest = CleaningRequest::query()->where('id_cleaning_request', $id)->get()[0];
+
+        return view('cleaning.cleaning', ['cleaningRequest'=>$cleaningRequest]);
+    }
+
+    public function updateCleaning(){
+        #criar o cleaning atraves do cleaning request
+    }
+
     public function showSchedule(){
         $user = Auth::user();
         $cleanings = Cleaning::query()

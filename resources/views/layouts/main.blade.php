@@ -31,7 +31,7 @@
                     @endif
                     @if(Auth::user()->user_type == config("constants.roles")[2])
                         <a href="/cleaning-requests">Cleaning Requests</a>
-                        <a href="/cleaning">Cleaning</a>
+                            <a href="/cleaning">Cleaning</a>
                     @endif
                 </nav>
             </div>

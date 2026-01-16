@@ -52,4 +52,6 @@ Route::middleware('auth')->group(function () {
     Route::post("/cleaning-requests/{id}/reject", [\App\Http\Controllers\CleaningRequestsController::class, "reject"])->name("cleaningRequests.reject");
 
     Route::get("/cleaning", [CleaningController::class, "index"])->name("cleaning.index");
+    Route::get("/cleaning/{id}", [CleaningController::class, "showCleaning"])->name("cleaning.show");
+    Route::patch("/cleaning/{id}", [CleaningController::class, "updateCleaning"])->name("cleaning.update");
 });
