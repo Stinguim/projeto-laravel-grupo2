@@ -55,12 +55,12 @@ class CleaningRequestsController extends Controller
         $request = CleaningRequest::where("id_cleaning_request", $id)->firstOrFail();
 
         // Só aceita se o pedido tiver o estado "pendente"
-        if ($request->state !== CleaningRequest::STATE_PENDING) {
+        if ($request->state !== 1) {
             abort(403);
         }
 
         // Atualizar estado para "aceite"
-        $request->state = CleaningRequest::STATE_APPROVED;
+        $request->state = 2;
         $request->save();
 
         return redirect()->back()->with("success", "Cleaning request accepted");
@@ -74,12 +74,12 @@ class CleaningRequestsController extends Controller
         $request = CleaningRequest::where("id_cleaning_request", $id)->firstOrFail();
 
         // só recusa se o pedido tiver o estado "pendente"
-        if ($request->state !== CleaningRequest::STATE_PENDING) {
+        if ($request->state !== 1) {
             abort(403);
         }
 
         // atualizar estado para "recusado"
-        $request->state = CleaningRequest::STATE_REJECTED;
+        $request->state = 0;
         $request->save();
 
         return redirect()->back()->with("success", "Cleaning request rejected");
