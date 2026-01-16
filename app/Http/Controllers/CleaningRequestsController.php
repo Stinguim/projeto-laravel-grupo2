@@ -64,7 +64,7 @@ class CleaningRequestsController extends Controller
 //        $request->state = 2;
 
 
-        $states = config('constants.cleaningRequestStates');
+        $states = config('constants.cleaningRequestsStates');
         // buscar pedido
         $request = CleaningRequest::where("id_cleaning_request", $id)->firstOrFail();
 
@@ -82,7 +82,7 @@ class CleaningRequestsController extends Controller
 
     public function reject($id)
     {
-        $states = config('constants.cleaningRequestStates');
+        $states = config('constants.cleaningRequestsStates');
 
         // Buscar pedido de limpeza
         $request = CleaningRequest::where("id_cleaning_request", $id)->firstOrFail();
